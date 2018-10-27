@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: landepatil.vishal:sqlitebuilder-1.0.2-beta">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/sqlitebuilder-1.0.2-beta.aar/1dcddbb0e45994b4c3ab64c657ae63d0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/sqlitebuilder-1.0.2-beta.aar/1dcddbb0e45994b4c3ab64c657ae63d0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/landepatil.vishal/sqlitebuilder/1.0.2-beta/b17fa7631c4739548236945a2c253a5101ade623/sqlitebuilder-1.0.2-beta-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

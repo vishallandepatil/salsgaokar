@@ -4,6 +4,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="searchbluetooth">Search Paired Device to Connect</string>
+    <string name="selecthbluetooth">Select Paired Device to Connect</string>
+    <string name="connectingbluetooth">Please Wait While Connecting</string>
 
     <array name="spiner">
         <item>hello</item>
