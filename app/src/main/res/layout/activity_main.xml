@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/white">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -15,17 +16,33 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
-        <ImageView
-            android:id="@+id/backpress"
-            android:src="@drawable/ic_arrow_back_black_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/backpress"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/toolbartitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incumonitor"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
     </android.support.v7.widget.Toolbar>
 
 
     <LinearLayout
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="3"
         android:id="@+id/buttons"
         android:layout_below="@id/my_toolbar"
         android:layout_margin="20dp"
@@ -33,34 +50,35 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/btnmeasure"
             android:layout_weight="1"
             android:text="Measure"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:background="@drawable/rowbackground"
             android:layout_margin="5dp"
             android:textColor="@color/white"
-
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle"/>
         <Button
+            android:id="@+id/btntrend"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:text="Trend"
             android:textColor="@color/grey"
-
             android:background="@drawable/backgroundgraywhite"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle"/>
         <Button
+            android:id="@+id/btnsetting"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:text="Setting"
             android:textColor="@color/grey"
-
             android:background="@drawable/backgroundgraywhite"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 <FrameLayout
 android:layout_below="@+id/buttons"

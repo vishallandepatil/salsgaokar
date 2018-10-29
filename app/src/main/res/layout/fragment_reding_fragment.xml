@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +16,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,47 +25,51 @@
             android:textSize="25dp"
             android:gravity="center"
             android:text="Incubator 1"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/black"/>
 
         <ImageView
             android:id="@+id/bluetothenable"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_bluetooth" />
-
-
-
 
         <TextView
             android:id="@+id/lable"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/searchbluetooth"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#ddd"
+            android:layout_marginTop="16dp"/>
 
         <ListView
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/listView"
             android:visibility="gone"
-
-            />
+            android:background="#f4f4f4"/>
 
         <LinearLayout
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:id="@+id/readingLayout"
             android:background="@drawable/background_reading"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,9 +83,10 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:paddingRight="10dp"
-                    android:text="CO2  :"
-                    android:textColor="@color/black" />
+                    android:text="CO2     :"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/lableco2"
@@ -90,9 +95,9 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="left"
-                    android:paddingLeft="10dp"
                     android:text="XX %"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="16dp"/>
 
 
             </LinearLayout>
@@ -101,7 +106,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -109,38 +115,39 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:paddingRight="10dp"
-                    android:text="O2  :"
-                    android:textColor="@color/black" />
+                    android:text="O2     :"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/lableco"
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="left"
-                    android:paddingLeft="10dp"
                     android:text="XX %"
-                    android:textColor="@color/black" />
-
-
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="16dp"/>
             </LinearLayout>
 
 
         </LinearLayout>
-
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/backgraound_store"
+            android:background="@drawable/rowbackground"
             android:gravity="center"
-            android:padding="20dp"
             android:id="@+id/btn"
             android:layout_marginTop="20dp"
-            android:text="Show Paired Devices" />
+            android:text="Show Paired Devices"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textColor="@color/white"
+            android:textSize="16dp"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -159,7 +166,6 @@
             android:gravity="center"
             android:id="@+id/btnoff"
             android:visibility="gone"
-
             android:layout_marginTop="20dp"
             android:text="LED OFF" />
 
