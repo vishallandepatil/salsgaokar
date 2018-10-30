@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingFragment"
+    tools:context=".setting.SettingFragment"
     android:orientation="vertical"
     android:background="@color/white"
     android:fillViewport="true">
@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/clinicinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -27,7 +28,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="XYZ Clinic"/>
+                android:id="@+id/lablename"
+                tools:text="XYZ Clinic"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,10 +38,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/lableAdress"
                 android:text="Chikalthana, MIDC, Cidco, Aurangabad"/>
         </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/addclicnicview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Clinic"
@@ -60,6 +69,7 @@
             android:layout_marginTop="16dp"/>
 
         <EditText
+            android:id="@+id/nameclinic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Clinic Name"
@@ -76,6 +86,7 @@
             android:layout_marginTop="16dp"/>
 
         <EditText
+            android:id="@+id/clinicadress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Clinic Address"
@@ -85,6 +96,7 @@
             android:lines="4"/>
 
         <Button
+            android:id="@+id/btnaddclinic"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_gravity="right"
@@ -93,6 +105,7 @@
             android:text="Add"
             android:textColor="@color/white"
             style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -115,6 +128,7 @@
             android:layout_marginTop="16dp"/>
 
         <EditText
+            android:id="@+id/incubatorename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Incubator Name"
@@ -123,6 +137,7 @@
             android:textSize="14dp"/>
 
         <Button
+            android:id="@+id/incubatoraddbtn"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_gravity="right"

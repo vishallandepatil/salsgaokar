@@ -1,4 +1,4 @@
-package com.example.vishallandepatil.incubatore;
+package com.example.vishallandepatil.incubatore.reading.database;
 
 public class ReadingTable {
 

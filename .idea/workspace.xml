@@ -10,30 +10,50 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0013e5b-d9f8-4843-b2e5-9aab4ae1d608" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/DBHelper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/ReadingTable.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_0_0_jar.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_27_1_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_PhilJay_MPAndroidChart_v3_1_0_alpha.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/PrefManager.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/database/Incubatore.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/trend/grafdemo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_grafdemo.xml" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/LoginActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Main2Activity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/AdapterIncubatorList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/adpators/AdapterIncubatorList.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/DBHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/DBHelper.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/IncubatorlistFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/MainActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/ReadingTable.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/database/ReadingTable.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/SettingFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_incubatorlist.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_incubatorlist.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_reding_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_reding_fragment.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,35 +76,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/LoginActivity.java">
+      <file leaf-file-name="Reding_fragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="314">
+              <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#775#1471#0" expanded="true" />
-                <element signature="e#1470#1471#0" expanded="true" />
+                <element signature="method#onPreExecute#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
+                <element signature="method#doInBackground#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
+                <element signature="method#createBluetoothSocket#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
+                <element signature="method#msg#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
+                <element signature="method#msg#0;class#Reding_fragment#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/MainActivity.java">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+            <state relative-caret-position="60">
+              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_login.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <file leaf-file-name="PrefManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/PrefManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+            <state relative-caret-position="69">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="method#clearSession#0;class#PrefManager#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReadingTable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/database/ReadingTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding>
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/DBHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_grafdemo.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_grafdemo.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -93,11 +151,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <file leaf-file-name="grafdemo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/trend/grafdemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="20" />
+            <state relative-caret-position="35">
+              <caret line="67" column="52" lean-forward="true" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -119,6 +177,8 @@
       <find>readingLayout</find>
       <find>getOutputStream</find>
       <find>btn</find>
+      <find>backpress</find>
+      <find>PrefManager</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2141,20 +2201,37 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_bluetooth_connected.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_reding_fragment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/ReadingTable.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Databasehelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/DBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/SettingFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/PrefManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/adpators/AdapterIncubatorList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/database/Incubatore.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_reding_fragment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/PrefManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/ReadingTable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/database/ReadingTable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_grafdemo.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="805" />
@@ -2199,13 +2276,20 @@
             <path>
               <item name="salsgaokar" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="incubatore" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="trend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="salsgaokar" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="salsgaokar" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="salsgaokar" type="1abcf292:AndroidViewProjectNode" />
@@ -2223,11 +2307,15 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="device.picker.selection" value="F8AZCY24X103" />
-    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.profiler.active" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.vishallandepatil.incubatore" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
@@ -2418,7 +2506,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="805" extended-state="1" />
+    <frame x="0" y="23" width="1440" height="805" extended-state="0" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2427,22 +2515,22 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32816902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32816902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39858156" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3971831" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2459,372 +2547,559 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>119</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>137</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>120</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>138</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>121</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>139</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>126</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>144</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>129</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>147</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>132</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>134</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>152</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>170</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>188</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>169</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>187</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>171</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>189</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>173</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>191</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>172</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>190</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>174</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>192</line>
           <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>176</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>194</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>175</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>193</line>
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>178</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>196</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>180</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>198</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>179</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>197</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>143</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>161</line>
           <properties />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>234</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>252</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>235</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>253</line>
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>237</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>255</line>
           <properties />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>238</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>256</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>239</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>257</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>240</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>258</line>
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>241</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>259</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>243</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>261</line>
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>225</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>243</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>227</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>245</line>
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>229</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>247</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>264</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>282</line>
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>266</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>284</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>267</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>285</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>272</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>290</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>273</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>291</line>
           <properties />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>274</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>292</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>275</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>293</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>277</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>295</line>
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>282</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>300</line>
           <properties />
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>294</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>313</line>
           <properties />
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>297</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>316</line>
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>305</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>324</line>
           <properties />
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>299</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>318</line>
           <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>298</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>317</line>
           <properties />
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>259</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>277</line>
           <properties />
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>260</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>278</line>
           <properties />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>258</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>276</line>
           <properties />
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>301</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>320</line>
           <properties />
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>302</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>321</line>
           <properties />
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>265</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>283</line>
           <properties />
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>269</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>287</line>
           <properties />
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>271</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>289</line>
           <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>270</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>288</line>
           <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>286</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>304</line>
           <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>287</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>305</line>
           <properties />
           <option name="timeStamp" value="76" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>64</line>
+          <properties />
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>66</line>
+          <properties />
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>68</line>
+          <properties />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/PrefManager.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/PrefManager.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/PrefManager.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>26</line>
+          <properties />
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java</url>
-          <line>279</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java</url>
+          <line>297</line>
           <properties method="run">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="79" />
+      <option name="time" value="118" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3013#4661#0" expanded="false" />
-            <element signature="e#3167#3214#0" expanded="false" />
-            <element signature="e#4660#4661#0" expanded="false" />
-            <element signature="e#4698#4868#0" expanded="false" />
-            <element signature="e#4867#4868#0" expanded="false" />
-            <element signature="e#4906#5075#0" expanded="false" />
-            <element signature="e#5074#5075#0" expanded="false" />
-            <element signature="e#6120#6171#0" expanded="false" />
-            <element signature="e#6313#7070#0" expanded="false" />
-            <element signature="e#6828#6875#0" expanded="false" />
-            <element signature="e#7069#7070#0" expanded="false" />
-            <element signature="method#Disconnect#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="e#8174#10811#0" expanded="false" />
-            <element signature="e#9324#10346#0" expanded="false" />
-            <element signature="e#9671#9718#0" expanded="false" />
-            <element signature="e#10345#10346#0" expanded="false" />
-            <element signature="e#10810#10811#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#onPreExecute#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="e#11199#11253#0" expanded="false" />
             <element signature="method#doInBackground#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
             <element signature="method#createBluetoothSocket#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
             <element signature="method#msg#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
@@ -2838,9 +3113,9 @@
         <state relative-caret-position="570">
           <caret line="60" column="36" lean-forward="false" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
           <folding>
-            <element signature="e#717#1107#0" expanded="false" />
-            <element signature="e#1117#1395#0" expanded="false" />
-            <element signature="e#2003#2229#0" expanded="false" />
+            <element signature="e#717#1142#0" expanded="false" />
+            <element signature="e#1152#1430#0" expanded="false" />
+            <element signature="e#2038#2264#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2848,30 +3123,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3013#4661#0" expanded="false" />
-            <element signature="e#3167#3214#0" expanded="false" />
-            <element signature="e#4660#4661#0" expanded="false" />
-            <element signature="e#4698#4868#0" expanded="false" />
-            <element signature="e#4867#4868#0" expanded="false" />
-            <element signature="e#4906#5075#0" expanded="false" />
-            <element signature="e#5074#5075#0" expanded="false" />
-            <element signature="e#6120#6171#0" expanded="false" />
-            <element signature="e#6313#7070#0" expanded="false" />
-            <element signature="e#6828#6875#0" expanded="false" />
-            <element signature="e#7069#7070#0" expanded="false" />
-            <element signature="method#Disconnect#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="e#8174#10811#0" expanded="false" />
-            <element signature="e#9324#10346#0" expanded="false" />
-            <element signature="e#9671#9718#0" expanded="false" />
-            <element signature="e#10345#10346#0" expanded="false" />
-            <element signature="e#10810#10811#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#onPreExecute#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="e#11199#11253#0" expanded="false" />
             <element signature="method#doInBackground#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
             <element signature="method#createBluetoothSocket#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
             <element signature="method#msg#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
@@ -2885,9 +3143,9 @@
         <state relative-caret-position="375">
           <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding>
-            <element signature="e#717#1107#0" expanded="false" />
-            <element signature="e#1117#1395#0" expanded="false" />
-            <element signature="e#2003#2229#0" expanded="false" />
+            <element signature="e#717#1142#0" expanded="false" />
+            <element signature="e#1152#1430#0" expanded="false" />
+            <element signature="e#2038#2264#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2900,21 +3158,6 @@
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_reding_fragment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="60" column="36" lean-forward="false" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-          <folding>
-            <element signature="e#717#1107#0" expanded="false" />
-            <element signature="e#1117#1395#0" expanded="false" />
-            <element signature="e#2003#2229#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml">
@@ -2955,100 +3198,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/DBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="56" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#318#319#0" expanded="false" />
-            <element signature="e#368#369#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/ReadingTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="25" />
-          <folding>
-            <element signature="e#167#168#0" expanded="false" />
-            <element signature="e#192#193#0" expanded="false" />
-            <element signature="e#228#229#0" expanded="false" />
-            <element signature="e#256#257#0" expanded="false" />
-            <element signature="e#291#292#0" expanded="false" />
-            <element signature="e#322#323#0" expanded="false" />
-            <element signature="e#370#371#0" expanded="false" />
-            <element signature="e#405#406#0" expanded="false" />
-            <element signature="e#444#445#0" expanded="false" />
-            <element signature="e#479#480#0" expanded="false" />
-            <element signature="e#535#536#0" expanded="false" />
-            <element signature="e#578#579#0" expanded="false" />
-            <element signature="e#614#615#0" expanded="false" />
-            <element signature="e#646#647#0" expanded="false" />
-            <element signature="e#696#697#0" expanded="false" />
-            <element signature="e#738#739#0" expanded="false" />
-            <element signature="e#775#776#0" expanded="false" />
-            <element signature="e#808#809#0" expanded="false" />
-            <element signature="e#860#861#0" expanded="false" />
-            <element signature="e#904#905#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/landepatil.vishal/sqlitebuilder/1.0.2-beta/b17fa7631c4739548236945a2c253a5101ade623/sqlitebuilder-1.0.2-beta-sources.jar!/landepatil/vishal/sqlitebuilder/Query.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
           <caret line="553" column="18" lean-forward="true" selection-start-line="553" selection-start-column="18" selection-end-line="553" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/Reding_fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1706">
-          <caret line="195" column="34" lean-forward="false" selection-start-line="195" selection-start-column="34" selection-end-line="195" selection-end-column="34" />
-          <folding>
-            <element signature="e#3013#4661#0" expanded="false" />
-            <element signature="e#3167#3214#0" expanded="false" />
-            <element signature="e#4660#4661#0" expanded="false" />
-            <element signature="e#4698#4868#0" expanded="false" />
-            <element signature="e#4867#4868#0" expanded="false" />
-            <element signature="e#4906#5075#0" expanded="false" />
-            <element signature="e#5074#5075#0" expanded="false" />
-            <element signature="e#6120#6171#0" expanded="false" />
-            <element signature="e#6313#7070#0" expanded="false" />
-            <element signature="e#6828#6875#0" expanded="false" />
-            <element signature="e#7069#7070#0" expanded="false" />
-            <element signature="method#Disconnect#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="e#8174#10811#0" expanded="false" />
-            <element signature="e#9324#10346#0" expanded="false" />
-            <element signature="e#9671#9718#0" expanded="false" />
-            <element signature="e#10345#10346#0" expanded="false" />
-            <element signature="e#10810#10811#0" expanded="false" />
-            <element signature="method#onPreExecute#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="e#11199#11253#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="method#createBluetoothSocket#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="method#msg#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
-            <element signature="method#msg#0;class#Reding_fragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3067,14 +3221,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="51" lean-forward="false" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/AdapterIncubatorList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -3098,24 +3244,216 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+        <state relative-caret-position="147">
+          <caret line="130" column="43" lean-forward="false" selection-start-line="130" selection-start-column="29" selection-end-line="130" selection-end-column="43" />
+          <folding>
+            <element signature="e#3056#3340#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="24959" column="13" lean-forward="false" selection-start-line="24959" selection-start-column="13" selection-end-line="24959" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_incubatorlist.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="150">
+          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/widget/ArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-745">
+          <caret line="72" column="13" lean-forward="false" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/adpators/AdapterIncubatorList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/database/Incubatore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#775#1471#0" expanded="true" />
-            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#614#615#0" expanded="false" />
+            <element signature="e#771#772#0" expanded="false" />
+            <element signature="e#820#821#0" expanded="false" />
+            <element signature="e#888#889#0" expanded="false" />
+            <element signature="e#939#940#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/IncubatorlistFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="65" column="91" lean-forward="false" selection-start-line="65" selection-start-column="91" selection-end-line="65" selection-end-column="91" />
+          <folding>
+            <element signature="e#2097#2701#0" expanded="false" />
+            <element signature="e#2700#2701#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/setting/SettingFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="91" column="89" lean-forward="false" selection-start-line="91" selection-start-column="89" selection-end-line="91" selection-end-column="89" />
+          <folding>
+            <element signature="e#2318#2914#0" expanded="false" />
+            <element signature="e#2913#2914#0" expanded="false" />
+            <element signature="method#validClinic#0;class#SettingFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_reding_fragment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+          <folding>
+            <element signature="e#1152#1430#0" expanded="false" />
+            <element signature="e#2038#2264#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/home/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-172">
+          <caret line="41" column="47" lean-forward="false" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+          <folding>
+            <element signature="e#1367#1516#0" expanded="false" />
+            <element signature="e#1515#1516#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <folding>
+            <element signature="e#772#1701#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/PrefManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="method#clearSession#0;class#PrefManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/Reding_fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#onPreExecute#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
+            <element signature="method#doInBackground#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
+            <element signature="method#createBluetoothSocket#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
+            <element signature="method#msg#0;class#ConnectBT#0;class#Reding_fragment#0" expanded="false" />
+            <element signature="method#msg#0;class#Reding_fragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/reading/database/ReadingTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/login/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/vishallandepatil/incubatore/trend/grafdemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="67" column="52" lean-forward="true" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_grafdemo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

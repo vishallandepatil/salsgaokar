@@ -1,7 +1,5 @@
-package com.example.vishallandepatil.incubatore;
+package com.example.vishallandepatil.incubatore.home;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.vishallandepatil.incubatore.login.DBHelper;
+import com.example.vishallandepatil.incubatore.home.adpators.AdapterIncubatorList;
+import com.example.vishallandepatil.incubatore.R;
+import com.example.vishallandepatil.incubatore.reading.Reding_fragment;
+import com.example.vishallandepatil.incubatore.setting.database.Incubatore;
+
+import java.util.ArrayList;
+
+import landepatil.vishal.sqlitebuilder.Query;
 
 
 public class IncubatorlistFragment extends Fragment {
@@ -42,16 +50,20 @@ public class IncubatorlistFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_incubatorlist, container, false);
-        AdapterIncubatorList adapter = new AdapterIncubatorList(this.getActivity(), maintitle);
+        final ArrayList<Incubatore> list= (ArrayList) Query.createQuery(new DBHelper(getContext())).load(Incubatore.class);
+        AdapterIncubatorList adapter = new AdapterIncubatorList(this.getActivity(), list);
+
         ListView listincubators = rootview.findViewById(R.id.listincubators);
         listincubators.setAdapter(adapter);
 
         listincubators.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().addToBackStack(null);
-                Reding_fragment fragment = new Reding_fragment();
+
+                Reding_fragment fragment =  Reding_fragment.newInstance( list.get(position));
                 fragmentTransaction.replace(R.id.fragment, fragment);
                 fragmentTransaction.commit();
             }

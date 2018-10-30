@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".home.MainActivity"
     android:background="@color/white">
 
     <android.support.v7.widget.Toolbar
@@ -80,6 +80,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
+
 <FrameLayout
 android:layout_below="@+id/buttons"
     android:id="@+id/fragment"

@@ -1,4 +1,4 @@
-package com.example.vishallandepatil.incubatore;
+package com.example.vishallandepatil.incubatore.reading;
 
 
 import android.app.ProgressDialog;
@@ -24,6 +24,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vishallandepatil.incubatore.login.DBHelper;
+import com.example.vishallandepatil.incubatore.R;
+import com.example.vishallandepatil.incubatore.reading.database.ReadingTable;
+import com.example.vishallandepatil.incubatore.setting.database.Incubatore;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
@@ -46,7 +51,7 @@ public class Reding_fragment extends Fragment {
     Button btn,btnOff,btnOn;
     ListView devicelist;
     String info;
-    TextView lable,lableco,lableco2;
+    TextView lable,lableco,lableco2,name;
     String address;
     LinearLayout readingLayout;
 
@@ -58,7 +63,17 @@ public class Reding_fragment extends Fragment {
     boolean stopWorker = false;
     int  readBufferPosition = 0;
     byte[]  readBuffer = new byte[1024];
+    private Incubatore incubatore;
     // Make an int
+
+
+    public static Reding_fragment newInstance(Incubatore incubatore) {
+        Reding_fragment fragment = new Reding_fragment();
+        Bundle bundle= new Bundle();
+        bundle.putParcelable("Incubatore",incubatore);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
     public Reding_fragment() {
 
     }
@@ -68,6 +83,7 @@ public class Reding_fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            incubatore= getArguments().getParcelable("Incubatore");
 
         }
     }
@@ -90,6 +106,9 @@ public class Reding_fragment extends Fragment {
         lableco = view.findViewById(R.id.lableco);
         lableco2 = view.findViewById(R.id.lableco2);
         readingLayout = view.findViewById(R.id.readingLayout);
+        name = view.findViewById(R.id.name);
+        name.setText(incubatore.getName());
+        Disconnect();
 
 
         devicelist = (ListView) view.findViewById(R.id.listView);
@@ -103,14 +122,13 @@ public class Reding_fragment extends Fragment {
                     reading.setCoreading(lableco.getText().toString());
                     reading.setO2reaading(lableco2.getText().toString());
                     reading.setDateTime(getDateTime());
+                    reading.setIncubatoreId(incubatore.getId()+"");
                     if(Query.createQuery(new DBHelper(getContext())).insert(reading))
                     {
                         lable.setText("Reading Store Sucessfully...");
                         btn.setText("");
-
-
-
-
+                        Toast.makeText(getContext(),"Reading Store Sucessfully...",Toast.LENGTH_LONG).show();
+                        getActivity().onBackPressed();
                     }
 
 
@@ -286,6 +304,7 @@ devicelist.setVisibility(View.GONE);
                                                 btn.setVisibility(View.VISIBLE);
                                                 lableco2.setText(data.split(",")[0]);
                                                 lableco.setText(data.split(",")[1]);
+                                                Disconnect();
                                             }
                                             catch (Exception e)
                                             {
