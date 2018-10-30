@@ -7,6 +7,8 @@
     <string name="searchbluetooth">Search Paired Device to Connect</string>
     <string name="selecthbluetooth">Select Paired Device to Connect</string>
     <string name="connectingbluetooth">Please Wait While Connecting</string>
+    <string name="storereading">Store Reading</string>
+    <string name="completreading">Satrt New Reading</string>
 
     <array name="spiner">
         <item>hello</item>

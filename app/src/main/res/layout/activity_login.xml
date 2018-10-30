@@ -46,6 +46,7 @@
             android:src="@drawable/ic_person_outline_black_24dp"
             android:layout_marginRight="10dp"/>
         <EditText
+            android:id="@+id/username"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -67,9 +68,20 @@
         <EditText
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/password"
             android:layout_height="match_parent"
             android:hint="Password"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/error"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="30dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+android:textColor="@color/red"        android:text="error"
+
+        />
 
     <Button
         android:id="@+id/btnlogin"

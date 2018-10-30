@@ -27,9 +27,14 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
+
+import landepatil.vishal.sqlitebuilder.Query;
 
 import static android.content.ContentValues.TAG;
 
@@ -66,7 +71,12 @@ public class Reding_fragment extends Fragment {
 
         }
     }
-
+    private String getDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,21 +97,42 @@ public class Reding_fragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myBluetooth = BluetoothAdapter.getDefaultAdapter();
-                if (myBluetooth == null) {
-                    //Show a mensag. that thedevice has no bluetooth adapter
-                    Toast.makeText(getContext(), "Bluetooth Device Not Available", Toast.LENGTH_LONG).show();
-                    //finish apk
+                if(btn.getText().toString().equalsIgnoreCase(getResources().getString(R.string.storereading))) {
 
-                } else {
-                    if (myBluetooth.isEnabled()) {
+                    ReadingTable reading =   new ReadingTable();
+                    reading.setCoreading(lableco.getText().toString());
+                    reading.setO2reaading(lableco2.getText().toString());
+                    reading.setDateTime(getDateTime());
+                    if(Query.createQuery(new DBHelper(getContext())).insert(reading))
+                    {
+                        lable.setText("Reading Store Sucessfully...");
+                        btn.setText("");
 
 
-                        pairedDevicesList(); //method that will be called
+
+
+                    }
+
+
+                }
+                else
+                {
+                    myBluetooth = BluetoothAdapter.getDefaultAdapter();
+                    if (myBluetooth == null) {
+                        //Show a mensag. that thedevice has no bluetooth adapter
+                        Toast.makeText(getContext(), "Bluetooth Device Not Available", Toast.LENGTH_LONG).show();
+                        //finish apk
+
                     } else {
-                        //Ask to the user turn the bluetooth on
-                        Intent turnBTon = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                        startActivityForResult(turnBTon, 1);
+                        if (myBluetooth.isEnabled()) {
+
+
+                            pairedDevicesList(); //method that will be called
+                        } else {
+                            //Ask to the user turn the bluetooth on
+                            Intent turnBTon = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                            startActivityForResult(turnBTon, 1);
+                        }
                     }
                 }
             }
@@ -157,10 +188,19 @@ public class Reding_fragment extends Fragment {
     private AdapterView.OnItemClickListener myListClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView av, View v, int arg2, long arg3) {
             // Get the device MAC address, the last 17 chars in the View
-            info = ((TextView) v).getText().toString();
-            address = info.substring(info.length() - 17);
+           // info = ((TextView) v).getText().toString();
+           // address = info.substring(info.length() - 17);
             // Make an intent to start next activity.
-            new ConnectBT().execute();
+           // new ConnectBT().execute();
+
+devicelist.setVisibility(View.GONE);
+            lable.setText("Reading Completed");
+            btn.setText(getResources().getString(R.string.storereading));
+            readingLayout.setVisibility(View.VISIBLE);
+            btn.setVisibility(View.VISIBLE);
+            lableco2.setText("25 %");
+            lableco.setText("35 %");
+
 
         }
     };
@@ -240,8 +280,8 @@ public class Reding_fragment extends Fragment {
                                         public void run()
                                         {
                                             try {
-                                                lable.setText("Reading Complited");
-                                                btn.setText("Store Reading");
+                                                lable.setText("Reading Completed");
+                                                btn.setText(getResources().getString(R.string.storereading));
                                                 readingLayout.setVisibility(View.VISIBLE);
                                                 btn.setVisibility(View.VISIBLE);
                                                 lableco2.setText(data.split(",")[0]);
