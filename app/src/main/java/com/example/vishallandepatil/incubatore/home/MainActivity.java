@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.vishallandepatil.incubatore.R;
+import com.example.vishallandepatil.incubatore.trend.TrendFragment;
 import com.example.vishallandepatil.incubatore.setting.SettingFragment;
 
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
         btnsetting = (Button) findViewById(R.id.btnsetting);
         btnmeasure = (Button) findViewById(R.id.btnmeasure);
+        btntrend = (Button) findViewById(R.id.btntrend);
         backpress = (ImageView) findViewById(R.id.backpress);
         backpress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.commit();
                 btnsetting.setBackgroundResource(R.drawable.rowbackground);
                 btnmeasure.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
                 btnmeasure.setTextColor(getResources().getColor(R.color.grey));
                 btnsetting.setTextColor(getResources().getColor(R.color.white));
-
-
+                btntrend.setTextColor(getResources().getColor(R.color.grey));
             }
         });
 
@@ -69,8 +71,30 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.commit();
                 btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
                 btnmeasure.setBackgroundResource(R.drawable.rowbackground);
+                btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
                 btnmeasure.setTextColor(getResources().getColor(R.color.white));
                 btnsetting.setTextColor(getResources().getColor(R.color.grey));
+                btntrend.setTextColor(getResources().getColor(R.color.grey));
+            }
+        });
+
+        btntrend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for(int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
+                    fragmentManager.popBackStack();
+                }
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().addToBackStack(null);
+                TrendFragment trendFragment = new TrendFragment();
+                fragmentTransaction.replace(R.id.fragment, trendFragment);
+                fragmentTransaction.commit();
+                btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btnmeasure.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btntrend.setBackgroundResource(R.drawable.rowbackground);
+                btnmeasure.setTextColor(getResources().getColor(R.color.grey));
+                btnsetting.setTextColor(getResources().getColor(R.color.grey));
+                btntrend.setTextColor(getResources().getColor(R.color.white));
             }
         });
     }
