@@ -14,11 +14,13 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context,"Incubatore",null,1);
     }
     public void onCreate(SQLiteDatabase db) {
+
         TableFactory.createTable(ReadingTable.class,db);
         TableFactory.createTable(Incubatore.class,db);
 
     }
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
+
 
 
     }

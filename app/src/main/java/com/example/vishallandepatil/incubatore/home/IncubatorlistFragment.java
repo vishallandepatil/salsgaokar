@@ -56,13 +56,12 @@ public class IncubatorlistFragment extends Fragment {
         ListView listincubators = rootview.findViewById(R.id.listincubators);
         listincubators.setAdapter(adapter);
 
-        listincubators.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listincubators.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().addToBackStack(null);
-
                 Reding_fragment fragment =  Reding_fragment.newInstance( list.get(position));
                 fragmentTransaction.replace(R.id.fragment, fragment);
                 fragmentTransaction.commit();

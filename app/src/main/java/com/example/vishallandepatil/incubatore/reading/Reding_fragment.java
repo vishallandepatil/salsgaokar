@@ -78,7 +78,9 @@ public class Reding_fragment extends Fragment {
 
     }
 
-
+    public Incubatore getIncubatore() {
+            return  incubatore;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +91,22 @@ public class Reding_fragment extends Fragment {
     }
     private String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+//                2014-10-07 02:34:56
+                "yyyy-dd-MM HH:mm:ss", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+    private String getYear() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+//                2014-10-07 02:34:56
+                "yyyy", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+    private String getMonth() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+//                2014-10-07 02:34:56
+                "MMM", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
     }
@@ -122,6 +139,8 @@ public class Reding_fragment extends Fragment {
                     reading.setCoreading(lableco.getText().toString());
                     reading.setO2reaading(lableco2.getText().toString());
                     reading.setDateTime(getDateTime());
+                    reading.setMonth(getMonth());
+                    reading.setYear(getYear());
                     reading.setIncubatoreId(incubatore.getId()+"");
                     if(Query.createQuery(new DBHelper(getContext())).insert(reading))
                     {

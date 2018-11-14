@@ -20,7 +20,7 @@
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_bar_chart"
             android:text="Graph View"
-            android:textAlignment="viewStart"
+            android:gravity="center_vertical"
             android:drawablePadding="10dp"
             android:paddingLeft="10dp"
             android:background="@null"
@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_calendar"
             android:text="Table View"
-            android:textAlignment="viewStart"
+            android:gravity="center_vertical"
             android:drawablePadding="10dp"
             android:paddingLeft="10dp"
             android:background="@null"
@@ -71,6 +71,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content">
                 <Spinner
+                    android:id="@+id/yearlistgraf"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:background="@drawable/backgroundgraywhite"
@@ -83,21 +84,28 @@
                     android:layout_marginRight="5dp"
                     android:layout_centerVertical="true" />
             </RelativeLayout>
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/rowbackground"
-                android:layout_marginLeft="16dp"
-                android:text="Save to SD Card"
-                android:textColor="@color/white"
-                android:drawableLeft="@drawable/ic_save_black_24dp"
-                android:textAlignment="viewStart"
-                android:drawablePadding="8dp"
-                android:textSize="12dp"
-                android:paddingLeft="10dp"
-                style="?android:attr/borderlessButtonStyle"/>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <Spinner
+                    android:id="@+id/monthlistgraf"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/backgroundgraywhite"
+                    android:entries="@array/year"></Spinner>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
         </LinearLayout>
+
+
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart"
@@ -119,6 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Spinner
+                android:id="@+id/yearlist"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@drawable/backgroundgraywhite"
@@ -138,6 +147,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="16dp">
             <Spinner
+                android:id="@+id/monthlist"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@drawable/backgroundgraywhite"
@@ -150,129 +160,29 @@
                 android:layout_marginRight="5dp"
                 android:layout_centerVertical="true" />
         </RelativeLayout>
+        <Button
+            android:visibility="visible"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:id="@+id/exporttoexcel"
+            android:background="@drawable/rowbackground"
+            android:layout_marginRight="16dp"
+            android:text="Save to SD Card"
 
-        <TableLayout
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_save_black_24dp"
+
+            android:drawablePadding="8dp"
+            android:textSize="12dp"
+            android:paddingLeft="10dp"
+            style="?android:attr/borderlessButtonStyle"/>
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
+            android:id="@+id/readinglist"
             android:layout_height="wrap_content">
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:text="Date"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:text="O2"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="3"
-                    android:text="CO2"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:text="01-11-2018"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:text="XX%"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="3"
-                    android:text="XX%"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:text="02-11-2018"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:text="XX%"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="3"
-                    android:text="XX%"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:text="03-11-2018"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:text="XX%"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_column="3"
-                    android:text="XX%"
-                    android:background="@drawable/cell_shape"
-                    android:padding="5dp"/>
-            </TableRow>
-        </TableLayout>
+
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
 </LinearLayout>

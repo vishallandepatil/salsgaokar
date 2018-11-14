@@ -1,10 +1,36 @@
 package com.example.vishallandepatil.incubatore.reading.database;
 
-public class ReadingTable {
+import landepatil.vishal.sqlitebuilder.annotations.PrimaryKey;
 
+public class ReadingTable
+{
+
+    @PrimaryKey
     String id;
+
     String DateTime;
     String IncubatoreId;
+    String year,month;
+
+    String coreading;
+    String o2reaading;
+
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
 
     public String getId() {
         return id;
@@ -45,8 +71,5 @@ public class ReadingTable {
     public void setO2reaading(String o2reaading) {
         this.o2reaading = o2reaading;
     }
-
-    String coreading;
-    String o2reaading;
 
 }
