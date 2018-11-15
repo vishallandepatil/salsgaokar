@@ -5,8 +5,8 @@ package com.example.vishallandepatil.incubatore.file;
  */
 
 public class Folders {
-    public final static String APPROOTFOLDER = "Insta Greetings";
-    public final static String MAINCATEGORY = "/Category";
+    public final static String APPROOTFOLDER = "Incumonitor";
+    public final static String MAINCATEGORY = "/";
     public final static String SUBCATEGORY = MAINCATEGORY;
 
 

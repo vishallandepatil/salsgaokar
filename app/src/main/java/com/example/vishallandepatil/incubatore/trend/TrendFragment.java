@@ -1,13 +1,17 @@
 package com.example.vishallandepatil.incubatore.trend;
 
+import android.Manifest;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +24,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 
 import com.example.vishallandepatil.incubatore.R;
 import com.example.vishallandepatil.incubatore.file.FileHelper;
@@ -43,11 +49,8 @@ import java.util.Calendar;
 
 import landepatil.vishal.sqlitebuilder.Query;
 import landepatil.vishal.sqlitebuilder.clause.Group;
-import landepatil.vishal.sqlitebuilder.clause.Projection;
 import landepatil.vishal.sqlitebuilder.clause.Restriction;
 
-import static android.content.Context.MODE_PRIVATE;
-import static android.view.View.GONE;
 
 
 public class TrendFragment extends Fragment {
@@ -100,6 +103,7 @@ public class TrendFragment extends Fragment {
         monthlist = (Spinner) rootview.findViewById(R.id.monthlist);
        final RecyclerView recyclerView = (RecyclerView) rootview.findViewById(R.id.readinglist);
 //
+
 //
     Group group=new Group();
      group.setGroup("year");
@@ -186,6 +190,12 @@ public class TrendFragment extends Fragment {
                     recyclerView.setLayoutManager(mLayoutManager);
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
                     recyclerView.setAdapter(mAdapter);
+                    exporttoexcel.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+
+                    exporttoexcel.setVisibility(View.GONE);
                 }
                 monthselected=position;
 
@@ -375,11 +385,41 @@ public class TrendFragment extends Fragment {
 
             }
         });
-
+        exporttoexcel.setVisibility(View.GONE);
         exporttoexcel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 exportTheDB();
+
+                // Here, thisActivity is the current activity
+                if (ContextCompat.checkSelfPermission(getContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    // Permission is not granted
+                    // Should we show an explanation?
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                        // Show an explanation to the user *asynchronously* -- don't block
+                        // this thread waiting for the user's response! After the user
+                        // sees the explanation, try again to request the permission.
+                    } else {
+                        // No explanation needed; request the permission
+                        ActivityCompat.requestPermissions(getActivity(),
+                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                0);
+
+                        // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                        // app-defined int constant. The callback method gets the
+                        // result of the request.
+                    }
+                } else {
+                    // Permission has already been granted
+                    exportTheDB();
+                }
+
+
+
+
 
             }
         });
@@ -399,11 +439,10 @@ public class TrendFragment extends Fragment {
         try {
 
           //  myFile = new File(extStorageDirectory+"/Export_"+TimeStampDB+".csv");
-            myFile =  FileHelper.creatfile("incumonitor/backup/","Export_"+TimeStampDB,".csv");
+            myFile =  FileHelper.creatfile("Backup","Export_"+TimeStampDB,".csv");
             FileOutputStream fOut = new FileOutputStream(myFile);
             OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
-            myOutWriter.append("id;time;Elapse;Sports type");
-            myOutWriter.append("ID"+";"+"TimeSatmp"+"year"+";"+";"+"O2"+";"+"CO2"+";"+"IncubatoreID"+";"+"MONTH");
+            myOutWriter.append("ID;TimeSatmp;year;O2;CO2;IncubatoreID;MONTH");
 
             myOutWriter.append("\n");
 
@@ -421,21 +460,49 @@ public class TrendFragment extends Fragment {
 
                 myOutWriter.close();
                 fOut.close();
+                Toast.makeText(getContext(),"Exported Successfully",Toast.LENGTH_SHORT).show();
 
             }
         } catch (IOException se)
         {
             Log.e(getClass().getSimpleName(),"Could not create or Open the database");
+
+            Toast.makeText(getContext(),"Error While Export",Toast.LENGTH_SHORT).show();
         }
 
         finally {
 
-            //dialog.dismiss();
+           dialog.dismiss();
 
         }
 
 
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 0: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    exportTheDB();
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(getContext(),"Permission Denied by you!",Toast.LENGTH_SHORT).show();
+
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request.
+        }
     }
 
 }

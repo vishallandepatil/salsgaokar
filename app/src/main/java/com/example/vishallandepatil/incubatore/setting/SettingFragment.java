@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import landepatil.vishal.sqlitebuilder.Query;
 
 public class SettingFragment extends Fragment {
-    LinearLayout clinicinfo,addclicnicview;
+    LinearLayout clinicinfo,addclicnicview,incubatore;
     EditText nameclinic,clinicadress,incubatorename;
     TextView lablename,lableAdress;
     Button btnaddclinic,incubatoraddbtn;
@@ -52,6 +52,7 @@ public class SettingFragment extends Fragment {
         incubatoraddbtn=view.findViewById(R.id.incubatoraddbtn);
         btnaddclinic=view.findViewById(R.id.btnaddclinic);
         addclicnicview=view.findViewById(R.id.addclicnicview);
+        incubatore=view.findViewById(R.id.incubatore);
         lablename=view.findViewById(R.id.lablename);
         lableAdress=view.findViewById(R.id.lableAdress);
 
@@ -94,6 +95,7 @@ public class SettingFragment extends Fragment {
                                                        Query.createQuery(new DBHelper(getContext())).insert(incubator);
                                                        incubatorename.setText("");
                                                        Toast.makeText(getContext(),"Incubatore Added Sucessfully...",Toast.LENGTH_LONG).show();
+                                                       getActivity().onBackPressed();
                                                    }
 
 
@@ -110,6 +112,7 @@ public class SettingFragment extends Fragment {
         {
             clinicinfo.setVisibility(View.GONE);
             addclicnicview.setVisibility(View.VISIBLE);
+            incubatore.setVisibility(View.GONE);
 
 
         }
@@ -118,6 +121,7 @@ public class SettingFragment extends Fragment {
 
             clinicinfo.setVisibility(View.VISIBLE);
             addclicnicview.setVisibility(View.GONE);
+            incubatore.setVisibility(View.VISIBLE);
             lablename.setText(prefManager.getName());
             lableAdress.setText(prefManager.getAdress());
 

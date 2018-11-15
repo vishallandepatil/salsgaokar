@@ -69,6 +69,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:id="@+id/password"
+            android:inputType="textPassword"
             android:layout_height="match_parent"
             android:hint="Password"/>
     </LinearLayout>
@@ -78,8 +79,10 @@
         android:layout_marginLeft="60dp"
         android:layout_marginRight="30dp"
         android:visibility="gone"
+
         android:layout_height="wrap_content"
-android:textColor="@color/red"        android:text="error"
+        android:textColor="@color/red"
+        android:text="error"
 
         />
 

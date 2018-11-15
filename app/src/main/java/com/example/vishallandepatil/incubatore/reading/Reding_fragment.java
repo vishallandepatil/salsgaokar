@@ -35,6 +35,7 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
@@ -142,6 +143,9 @@ public class Reding_fragment extends Fragment {
                     reading.setMonth(getMonth());
                     reading.setYear(getYear());
                     reading.setIncubatoreId(incubatore.getId()+"");
+                 List a= Query.createQuery(new DBHelper(getContext())).load(ReadingTable.class);
+
+                    reading.setId((a.size()+1)+"");
                     if(Query.createQuery(new DBHelper(getContext())).insert(reading))
                     {
                         lable.setText("Reading Store Sucessfully...");
@@ -225,18 +229,21 @@ public class Reding_fragment extends Fragment {
     private AdapterView.OnItemClickListener myListClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView av, View v, int arg2, long arg3) {
             // Get the device MAC address, the last 17 chars in the View
-           // info = ((TextView) v).getText().toString();
-           // address = info.substring(info.length() - 17);
-            // Make an intent to start next activity.
-           // new ConnectBT().execute();
+            info = ((TextView) v).getText().toString();
+            address = info.substring(info.length() - 17);
+           // Make an intent to start next activity.
+            new ConnectBT().execute();
 
-devicelist.setVisibility(View.GONE);
+           /*
+            devicelist.setVisibility(View.GONE);
             lable.setText("Reading Completed");
             btn.setText(getResources().getString(R.string.storereading));
             readingLayout.setVisibility(View.VISIBLE);
             btn.setVisibility(View.VISIBLE);
             lableco2.setText("25 %");
             lableco.setText("35 %");
+
+            */
 
 
         }
