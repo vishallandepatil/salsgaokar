@@ -19,6 +19,7 @@ android {
 }
 
 repositories {
+
     maven { url 'https://jitpack.io' }
 }
 
@@ -37,5 +38,6 @@ dependencies {
     implementation 'landepatil.vishal:sqlitebuilder:1.0.2-beta'
     implementation 'com.android.support:cardview-v7:27.0.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v2.1.6'
-    implementation 'com.android.support:recyclerview-v7:27.1.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
 }

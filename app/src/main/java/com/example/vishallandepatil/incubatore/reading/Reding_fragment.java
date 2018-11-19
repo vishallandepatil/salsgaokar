@@ -5,7 +5,10 @@ import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,6 +27,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vishallandepatil.incubatore.home.MainActivity;
 import com.example.vishallandepatil.incubatore.login.DBHelper;
 import com.example.vishallandepatil.incubatore.R;
 import com.example.vishallandepatil.incubatore.reading.database.ReadingTable;
@@ -78,6 +82,26 @@ public class Reding_fragment extends Fragment {
     public Reding_fragment() {
 
     }
+    TextView status;
+    private final BroadcastReceiver bStateReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+                if (intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1) == BluetoothAdapter.STATE_OFF) {
+                    // Bluetooth is disconnected, do handling here
+                    status.setText("Off");
+                }
+                if (intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1) == BluetoothAdapter.STATE_ON) {
+                    // Bluetooth is disconnected, do handling here
+                    status.setText("ON");
+                }
+
+            }
+        }
+
+    };
+
+
 
     public Incubatore getIncubatore() {
             return  incubatore;
@@ -89,6 +113,8 @@ public class Reding_fragment extends Fragment {
             incubatore= getArguments().getParcelable("Incubatore");
 
         }
+        IntentFilter filter1 = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+        getActivity().registerReceiver(bStateReceiver, filter1);
     }
     private String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
@@ -112,11 +138,18 @@ public class Reding_fragment extends Fragment {
         return dateFormat.format(date);
     }
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getActivity().unregisterReceiver(bStateReceiver);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reding_fragment, container, false);
         bluetothenable = view.findViewById(R.id.bluetothenable);
+        status = (TextView) view.findViewById(R.id.status);
         btn = view.findViewById(R.id.btn);
         btnOn = view.findViewById(R.id.btnon);
         btnOff = view.findViewById(R.id.btnoff);
@@ -355,6 +388,7 @@ public class Reding_fragment extends Fragment {
         });
 
         workerThread.start();
+
     }
 
     private class ConnectBT extends AsyncTask<Void, Void, Void>  // UI thread
@@ -365,6 +399,7 @@ public class Reding_fragment extends Fragment {
         protected void onPreExecute() {
             progress = ProgressDialog.show(getContext(), "Connecting...", "Please wait!!!");
             lable.setText(getResources().getString(R.string.connectingbluetooth));
+            status.setText("Connecting");
 //show a progress dialog
         }
 
@@ -385,9 +420,14 @@ public class Reding_fragment extends Fragment {
                 }
             } catch (IOException e) {
                 ConnectSuccess = false;//if the try failed, you can check the exception here
+
                 try {
                     btSocket.close();
+
+
                 } catch (IOException e2) {
+
+
                     //errorExit("Fatal Error", "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".");
                 }
 
@@ -414,9 +454,16 @@ public class Reding_fragment extends Fragment {
 
             if (!ConnectSuccess) {
                 msg("Connection Failed. Is it a SPP Bluetooth? Try again.");
+                status.setText("Disconnected");
+                status.setBackgroundColor(getResources().getColor(R.color.red));
+
+
                 // finish();
             } else {
                 msg("Bluetooth is Connected. Please Wait for Collecting Data");
+
+                status.setText("Connected");
+                status.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
                 isBtConnected = true;
                 devicelist.setVisibility(View.GONE);
@@ -434,6 +481,7 @@ public class Reding_fragment extends Fragment {
         private void msg(String s) {
             Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
             lable.setText(s);
+
 
         }
 

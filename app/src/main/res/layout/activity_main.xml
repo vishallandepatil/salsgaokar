@@ -42,7 +42,7 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="3"
         android:id="@+id/buttons"
         android:layout_below="@id/my_toolbar"
         android:layout_margin="20dp"
@@ -65,7 +65,7 @@
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:text="Trend"
-            android:visibility="gone"
+            android:visibility="visible"
             android:textColor="@color/grey"
             android:background="@drawable/backgroundgraywhite"
             android:layout_width="0dp"
@@ -82,6 +82,9 @@
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
+
+
+
 
 <FrameLayout
 android:layout_below="@+id/buttons"

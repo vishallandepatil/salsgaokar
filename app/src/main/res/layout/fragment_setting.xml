@@ -42,7 +42,7 @@
                 android:text="Chikalthana, MIDC, Cidco, Aurangabad"/>
         </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/addclicnicview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

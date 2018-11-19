@@ -1,13 +1,20 @@
 package com.example.vishallandepatil.incubatore.home;
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.vishallandepatil.incubatore.R;
 import com.example.vishallandepatil.incubatore.reading.Reding_fragment;
@@ -19,6 +26,20 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnmeasure,btntrend,btnsetting;
     ImageView backpress;
+    TextView status;
+public static     int button=1;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         btnsetting = (Button) findViewById(R.id.btnsetting);
         btnmeasure = (Button) findViewById(R.id.btnmeasure);
         btntrend = (Button) findViewById(R.id.btntrend);
+
         backpress = (ImageView) findViewById(R.id.backpress);
         backpress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,16 +65,20 @@ public class MainActivity extends AppCompatActivity {
         btnsetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnmeasure.setClickable(true);
+                button=3;
                 for(int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
                     fragmentManager.popBackStack();
                 }
-
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().addToBackStack(null);
                 SettingFragment settingFragment = new SettingFragment();
                 fragmentTransaction.replace(R.id.fragment, settingFragment);
                 fragmentTransaction.commit();
-
+                btnsetting.setBackgroundResource(R.drawable.rowbackground);
+                btnmeasure.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btnmeasure.setTextColor(getResources().getColor(R.color.grey));
+                btnsetting.setTextColor(getResources().getColor(R.color.white));
+                btntrend.setTextColor(getResources().getColor(R.color.grey));
             }
         });
 
@@ -60,13 +86,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if ((btntrend.getVisibility()==View.VISIBLE)) {
-
-                 onBackPressed();
-
-
-                }
-                else {
+                     button=1;
 
 
                     for (int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
@@ -78,27 +98,38 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.replace(R.id.fragment, incubatorlistFragment1);
                     fragmentTransaction.commit();
 
-                }
+
+                btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btnmeasure.setBackgroundResource(R.drawable.rowbackground);
+                btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btnmeasure.setTextColor(getResources().getColor(R.color.white));
+                btnsetting.setTextColor(getResources().getColor(R.color.grey));
+                btntrend.setTextColor(getResources().getColor(R.color.grey));
 
 
-                btnmeasure.setClickable(false);
+
             }
         });
 
         btntrend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnmeasure.setClickable(true);
-                Fragment fragment = fragmentManager.findFragmentById(R.id.fragment);
+                button=2;
 
-                if ((fragment instanceof Reding_fragment)) {
 
 
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().addToBackStack(null);
-                    TrendFragment trendFragment =  TrendFragment.newInstance(((Reding_fragment)fragment).getIncubatore());
+                    IncubatorlistFragment trendFragment =  new IncubatorlistFragment();
                     fragmentTransaction.replace(R.id.fragment, trendFragment);
                     fragmentTransaction.commit();
-                }
+
+                btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btnmeasure.setBackgroundResource(R.drawable.backgroundgraywhite);
+                btntrend.setBackgroundResource(R.drawable.rowbackground);
+                btnmeasure.setTextColor(getResources().getColor(R.color.grey));
+                btnsetting.setTextColor(getResources().getColor(R.color.grey));
+                btntrend.setTextColor(getResources().getColor(R.color.white));
+
 
             }
         });
@@ -111,22 +142,17 @@ public class MainActivity extends AppCompatActivity {
 
                 if ((fragment instanceof IncubatorlistFragment)) {
 
-                    btnmeasure.setVisibility(View.VISIBLE);
-                    btntrend.setVisibility(View.GONE);
-                    btnsetting.setVisibility(View.VISIBLE);
-                    btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
-                    btnmeasure.setBackgroundResource(R.drawable.rowbackground);
-                    btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
-                    btnmeasure.setTextColor(getResources().getColor(R.color.white));
-                    btnsetting.setTextColor(getResources().getColor(R.color.grey));
-                    btntrend.setTextColor(getResources().getColor(R.color.grey));
+                    //btnmeasure.setVisibility(View.VISIBLE);
+                    //btntrend.setVisibility(View.GONE);
+                   // btnsetting.setVisibility(View.VISIBLE);
+
 
                 }
                 if ((fragment instanceof Reding_fragment)) {
 
-                    btnmeasure.setVisibility(View.VISIBLE);
-                    btntrend.setVisibility(View.VISIBLE);
-                    btnsetting.setVisibility(View.GONE);
+                   // btnmeasure.setVisibility(View.VISIBLE);
+                   // btntrend.setVisibility(View.VISIBLE);
+                  //  btnsetting.setVisibility(View.GONE);
                     btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
                     btnmeasure.setBackgroundResource(R.drawable.rowbackground);
                     btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
@@ -137,27 +163,17 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if ((fragment instanceof TrendFragment)) {
 
-                    btnmeasure.setVisibility(View.VISIBLE);
-                    btntrend.setVisibility(View.VISIBLE);
-                    btnsetting.setVisibility(View.GONE);
-                    btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
-                    btnmeasure.setBackgroundResource(R.drawable.backgroundgraywhite);
-                    btntrend.setBackgroundResource(R.drawable.rowbackground);
-                    btnmeasure.setTextColor(getResources().getColor(R.color.grey));
-                    btnsetting.setTextColor(getResources().getColor(R.color.grey));
-                    btntrend.setTextColor(getResources().getColor(R.color.white));
+                //    btnmeasure.setVisibility(View.VISIBLE);
+                 //   btntrend.setVisibility(View.VISIBLE);
+                //    btnsetting.setVisibility(View.GONE);
+
 
                 }
                 if ((fragment instanceof SettingFragment)) {
-                    btnmeasure.setVisibility(View.VISIBLE);
-                    btntrend.setVisibility(View.GONE);
-                    btnsetting.setVisibility(View.VISIBLE);
-                    btnsetting.setBackgroundResource(R.drawable.rowbackground);
-                    btnmeasure.setBackgroundResource(R.drawable.backgroundgraywhite);
-                    btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
-                    btnmeasure.setTextColor(getResources().getColor(R.color.grey));
-                    btnsetting.setTextColor(getResources().getColor(R.color.white));
-                    btntrend.setTextColor(getResources().getColor(R.color.grey));
+                   // btnmeasure.setVisibility(View.VISIBLE);
+                    //btntrend.setVisibility(View.GONE);
+                    //btnsetting.setVisibility(View.VISIBLE);
+
                 }
             }
 
@@ -165,4 +181,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }
