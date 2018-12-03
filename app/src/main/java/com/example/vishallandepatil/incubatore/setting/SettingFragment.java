@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vishallandepatil.incubatore.home.adpators.AdapterIncubatorList;
 import com.example.vishallandepatil.incubatore.login.DBHelper;
 import com.example.vishallandepatil.incubatore.login.PrefManager;
 import com.example.vishallandepatil.incubatore.R;
@@ -25,6 +27,7 @@ public class SettingFragment extends Fragment {
     EditText nameclinic,clinicadress,incubatorename;
     TextView lablename,lableAdress;
     Button btnaddclinic,incubatoraddbtn;
+    ListView listincubators;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -55,10 +58,12 @@ public class SettingFragment extends Fragment {
         incubatore=view.findViewById(R.id.incubatore);
         lablename=view.findViewById(R.id.lablename);
         lableAdress=view.findViewById(R.id.lableAdress);
+        listincubators = view.findViewById(R.id.listincubators);
 
-
+        loadlist();
         final PrefManager prefManager=new PrefManager(getContext());
         settingLayout(prefManager);
+
 
         btnaddclinic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +100,9 @@ public class SettingFragment extends Fragment {
                                                        Query.createQuery(new DBHelper(getContext())).insert(incubator);
                                                        incubatorename.setText("");
                                                        Toast.makeText(getContext(),"Incubatore Added Sucessfully...",Toast.LENGTH_LONG).show();
+                                                       loadlist();
                                                        getActivity().onBackPressed();
+
                                                    }
 
 
@@ -105,6 +112,20 @@ public class SettingFragment extends Fragment {
 
 
         return  view;
+    }
+
+    private void loadlist() {
+        final ArrayList<Incubatore> list= (ArrayList) Query.createQuery(new DBHelper(getContext())).load(Incubatore.class);
+        if(list!=null&&list.size()>0) {
+            AdapterIncubatorList adapter = new AdapterIncubatorList(this.getActivity(), list,1);
+            listincubators.setAdapter(adapter);
+            listincubators.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            listincubators.setVisibility(View.GONE);
+
+        }
     }
 
     private void settingLayout(PrefManager prefManager) {
@@ -135,7 +156,7 @@ public class SettingFragment extends Fragment {
     boolean validClinic(String name,String adress)
    {
        boolean result=true;
-       if(name!=null&& name.length()>5)
+       if(name!=null&& name.length()>0)
        {
 
        }
@@ -145,7 +166,7 @@ public class SettingFragment extends Fragment {
 
            result=false;
        }
-       if(adress!=null&& adress.length()>5)
+       if(adress!=null&& adress.length()>0)
        {
 
        }
@@ -161,7 +182,7 @@ public class SettingFragment extends Fragment {
     boolean validIncubatore(String name)
     {
         boolean result=true;
-        if(name!=null&& name.length()>5)
+        if(name!=null&& name.length()>0)
         {
 
         }

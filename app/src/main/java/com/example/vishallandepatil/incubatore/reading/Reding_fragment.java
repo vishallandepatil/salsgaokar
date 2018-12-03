@@ -137,6 +137,13 @@ public class Reding_fragment extends Fragment {
         Date date = new Date();
         return dateFormat.format(date);
     }
+    private String getDay() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+//                2014-10-07 02:34:56
+                "dd", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -175,6 +182,7 @@ public class Reding_fragment extends Fragment {
                     reading.setDateTime(getDateTime());
                     reading.setMonth(getMonth());
                     reading.setYear(getYear());
+                    reading.setDay(getDay());
                     reading.setIncubatoreId(incubatore.getId()+"");
                  List a= Query.createQuery(new DBHelper(getContext())).load(ReadingTable.class);
 
@@ -262,12 +270,12 @@ public class Reding_fragment extends Fragment {
     private AdapterView.OnItemClickListener myListClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView av, View v, int arg2, long arg3) {
             // Get the device MAC address, the last 17 chars in the View
-            info = ((TextView) v).getText().toString();
+           /* info = ((TextView) v).getText().toString();
             address = info.substring(info.length() - 17);
            // Make an intent to start next activity.
-            new ConnectBT().execute();
+            new ConnectBT().execute();*/
 
-           /*
+
             devicelist.setVisibility(View.GONE);
             lable.setText("Reading Completed");
             btn.setText(getResources().getString(R.string.storereading));
@@ -276,7 +284,7 @@ public class Reding_fragment extends Fragment {
             lableco2.setText("25 %");
             lableco.setText("35 %");
 
-            */
+
 
 
         }

@@ -10,11 +10,20 @@ public class ReadingTable
 
     String DateTime;
     String IncubatoreId;
-    String year,month;
+    String year;
+    String month;
+    String day;
 
     String coreading;
     String o2reaading;
 
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
 
     public String getYear() {
         return year;

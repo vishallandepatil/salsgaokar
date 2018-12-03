@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.example.vishallandepatil.incubatore.R;
 import com.example.vishallandepatil.incubatore.file.FileHelper;
+import com.example.vishallandepatil.incubatore.home.MainActivity;
 import com.example.vishallandepatil.incubatore.login.DBHelper;
 import com.example.vishallandepatil.incubatore.reading.database.ReadingTable;
 import com.example.vishallandepatil.incubatore.setting.database.Incubatore;
@@ -49,6 +50,7 @@ import java.util.Calendar;
 
 import landepatil.vishal.sqlitebuilder.Query;
 import landepatil.vishal.sqlitebuilder.clause.Group;
+import landepatil.vishal.sqlitebuilder.clause.Order;
 import landepatil.vishal.sqlitebuilder.clause.Restriction;
 
 
@@ -99,49 +101,13 @@ public class TrendFragment extends Fragment {
         monthlist = (Spinner) rootview.findViewById(R.id.monthlist);
        final RecyclerView recyclerView = (RecyclerView) rootview.findViewById(R.id.readinglist);
 //
-
-//
-    Group group=new Group();
-     group.setGroup("year");
-        Cursor cursor=Query.createQuery(new DBHelper(getContext())).setRestriction(new Restriction().addEquals("IncubatoreId", incubatore.getId())).setGroupBy(group).loadCursor(ReadingTable.class);
-
-        year.add("Select Year");
-      if (cursor.moveToFirst()) {
-           do {
-             String str=  cursor.getString(cursor.getColumnIndex("year"));
-               if(str!=null) {
-                   year.add(str);
-               }
-                // get  the  data into array,or class variable
-            } while (cursor.moveToNext());
-        }
-
-
-//      final ArrayList<String> ar = new ArrayList<String>();
-////
-//        ar.add("Select Year");
-//        ar.add("2018");ar.add("2019");ar.add("2020");ar.add("2021");
-//       ar.add("2022");ar.add("2023");ar.add("2024");ar.add("2025");
-//       ar.add("2026");ar.add("2027");ar.add("2028");ar.add("2029");
-
-
-
-        final ArrayAdapter aa = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,year);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        yearlist.setAdapter(aa);
-        yearlistgraf.setAdapter(aa);
-        //Setting the ArrayAdapter data on the Spinner
-
-
-
-
-
-
+        ((MainActivity)getActivity()).toolbartitle.setText(incubatore.getName());
 
         Drawable img = getContext().getResources().getDrawable( R.drawable.ic_bar_chart_active );
         btngraph.setCompoundDrawablesWithIntrinsicBounds( img, null, null, null);
         btngraph.setTextColor(getResources().getColor(R.color.colorPrimary));
-        final LineChart chart = (LineChart) rootview.findViewById(R.id.chart);
+        final LineChart chartco2 = (LineChart) rootview.findViewById(R.id.chartco2);
+        final LineChart charto2 = (LineChart) rootview.findViewById(R.id.charto2);
 
         btngraph.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,7 +176,7 @@ public class TrendFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 months = new ArrayList<String>();
-                if(position==0)
+               /* if(position==0)
                 {
                     months.add("Select Month");
                     ArrayAdapter monthadpater = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, months);
@@ -235,7 +201,7 @@ public class TrendFragment extends Fragment {
 
 
                 }
-                else {
+                else {*/
                     String years= year.get(position);
                     months.add("Select Month");
 
@@ -257,7 +223,7 @@ public class TrendFragment extends Fragment {
                     monthlistgraf.setAdapter(monthsadapter);
 
 
-                }
+
                 yearselected=position;
 
 
@@ -273,8 +239,8 @@ public class TrendFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position>0) {
 
-                    Restriction restriction = new Restriction().addEquals("year", year.get(yearselected)).addEquals("month", months.get(position));
-                    ArrayList<ReadingTable> cursor = (ArrayList) Query.createQuery(new DBHelper(getContext())).setRestriction(restriction).load(ReadingTable.class);
+
+                    Restriction restriction = new Restriction().addEquals("IncubatoreId", incubatore.getId()).addEquals("year", year.get(yearselected)).addEquals("month", months.get(position));
                     ArrayList<ReadingTable> data = (ArrayList) Query.createQuery(new DBHelper(getContext())).setRestriction(restriction).load(ReadingTable.class);
                     ArrayList<Entry> entriesco2 = new ArrayList<>();
                     ArrayList<Entry> entrieso2 = new ArrayList<>();
@@ -298,15 +264,21 @@ public class TrendFragment extends Fragment {
                     lDataSet1.setCircleColor(Color.BLUE);
                     lines.add(lDataSet1);
 
+                    ArrayList<LineDataSet> linesCo2 = new ArrayList<LineDataSet>();
                     LineDataSet lDataSet2 = new LineDataSet(entriesco2, "Co2");
                     lDataSet2.setColor(Color.RED);
                     lDataSet2.setCircleColor(Color.RED);
-                    lines.add(lDataSet2);
+                    linesCo2.add(lDataSet2);
 
-                    chart.setData(new LineData(xAxis, lines));
-                    chart.setTouchEnabled(true);
-                    chart.invalidate();
-                    chart.setDragEnabled(true);
+                    charto2.setData(new LineData(xAxis, lines));
+                    charto2.setTouchEnabled(true);
+                    charto2.invalidate();
+                    charto2.setDragEnabled(false);
+
+                    chartco2.setData(new LineData(xAxis, linesCo2));
+                    chartco2.setTouchEnabled(true);
+                    chartco2.invalidate();
+                    chartco2.setDragEnabled(false);
                 }
                 else
                 {
@@ -319,13 +291,17 @@ public class TrendFragment extends Fragment {
                     lDataSet1.setCircleColor(Color.BLUE);
                     lines.add(lDataSet1);
 
+                    ArrayList<LineDataSet> linesco2 = new ArrayList<LineDataSet>();
                     LineDataSet lDataSet2 = new LineDataSet(entriesco2, "Co2");
                     lDataSet2.setColor(Color.RED);
                     lDataSet2.setCircleColor(Color.RED);
                     lines.add(lDataSet2);
-                    chart.setData(new LineData(xAxis, lines));
-                    chart.invalidate();
+                    chartco2.setData(new LineData(xAxis, lines));
+                    chartco2.invalidate();
 
+                    linesco2.add(lDataSet2);
+                    charto2.setData(new LineData(xAxis, lines));
+                    charto2.invalidate();
                 }
 
             }
@@ -340,7 +316,7 @@ public class TrendFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 months = new ArrayList<String>();;
 
-                if(position==0)
+             /*   if(position==0)
                 {
                     months.add("Select Month");
                     ArrayAdapter monthadpater = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, months);
@@ -349,7 +325,7 @@ public class TrendFragment extends Fragment {
                     monthlist.setAdapter(monthadpater);
 
                 }
-               else {
+               else {*/
                    String years= year.get(position);
                     months.add("Select Month");
 
@@ -371,7 +347,7 @@ public class TrendFragment extends Fragment {
                     monthlist.setAdapter(monthsadapter);
 
 
-                }
+
                 yearselected=position;
 
             }
@@ -419,6 +395,39 @@ public class TrendFragment extends Fragment {
 
             }
         });
+
+        Group group=new Group();
+        Order order=new Order().setDesc("year");
+        group.setGroup("year");
+        Cursor cursor=Query.createQuery(new DBHelper(getContext())).setOrder(order).setRestriction(new Restriction().addEquals("IncubatoreId", incubatore.getId())).setGroupBy(group).loadCursor(ReadingTable.class);
+
+
+        if (cursor.moveToFirst()) {
+            do {
+                String str=  cursor.getString(cursor.getColumnIndex("year"));
+                if(str!=null) {
+                    year.add(str);
+                }
+                // get  the  data into array,or class variable
+            } while (cursor.moveToNext());
+        }
+
+
+//      final ArrayList<String> ar = new ArrayList<String>();
+////
+//        ar.add("Select Year");
+//        ar.add("2018");ar.add("2019");ar.add("2020");ar.add("2021");
+//       ar.add("2022");ar.add("2023");ar.add("2024");ar.add("2025");
+//       ar.add("2026");ar.add("2027");ar.add("2028");ar.add("2029");
+
+
+
+        final ArrayAdapter aa = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,year);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        yearlist.setAdapter(aa);
+        yearlistgraf.setAdapter(aa);
+
+
         return rootview;
     }
     private void exportTheDB()

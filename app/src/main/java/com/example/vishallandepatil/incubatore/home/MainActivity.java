@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnmeasure,btntrend,btnsetting;
     ImageView backpress;
     TextView status;
+    public TextView toolbartitle;
 public static     int button=1;
 
     @Override
@@ -48,12 +49,14 @@ public static     int button=1;
         final FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         /*Reding_fragment fragment = new Reding_fragment();*/
-        IncubatorlistFragment incubatorlistFragment = new IncubatorlistFragment();
+        MenuFragment incubatorlistFragment = new MenuFragment();
         fragmentTransaction.add(R.id.fragment, incubatorlistFragment);
         fragmentTransaction.commit();
         btnsetting = (Button) findViewById(R.id.btnsetting);
         btnmeasure = (Button) findViewById(R.id.btnmeasure);
         btntrend = (Button) findViewById(R.id.btntrend);
+        toolbartitle = (TextView) findViewById(R.id.toolbartitle);
+
 
         backpress = (ImageView) findViewById(R.id.backpress);
         backpress.setOnClickListener(new View.OnClickListener() {
@@ -61,122 +64,6 @@ public static     int button=1;
             public void onClick(View v) {
                 onBackPressed();
             }
-        });
-        btnsetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                button=3;
-                for(int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
-                    fragmentManager.popBackStack();
-                }
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().addToBackStack(null);
-                SettingFragment settingFragment = new SettingFragment();
-                fragmentTransaction.replace(R.id.fragment, settingFragment);
-                fragmentTransaction.commit();
-                btnsetting.setBackgroundResource(R.drawable.rowbackground);
-                btnmeasure.setBackgroundResource(R.drawable.backgroundgraywhite);
-                btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
-                btnmeasure.setTextColor(getResources().getColor(R.color.grey));
-                btnsetting.setTextColor(getResources().getColor(R.color.white));
-                btntrend.setTextColor(getResources().getColor(R.color.grey));
-            }
-        });
-
-        btnmeasure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                     button=1;
-
-
-                    for (int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
-                        fragmentManager.popBackStack();
-                    }
-
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().addToBackStack(null);
-                    IncubatorlistFragment incubatorlistFragment1 = new IncubatorlistFragment();
-                    fragmentTransaction.replace(R.id.fragment, incubatorlistFragment1);
-                    fragmentTransaction.commit();
-
-
-                btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
-                btnmeasure.setBackgroundResource(R.drawable.rowbackground);
-                btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
-                btnmeasure.setTextColor(getResources().getColor(R.color.white));
-                btnsetting.setTextColor(getResources().getColor(R.color.grey));
-                btntrend.setTextColor(getResources().getColor(R.color.grey));
-
-
-
-            }
-        });
-
-        btntrend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                button=2;
-
-
-
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().addToBackStack(null);
-                    IncubatorlistFragment trendFragment =  new IncubatorlistFragment();
-                    fragmentTransaction.replace(R.id.fragment, trendFragment);
-                    fragmentTransaction.commit();
-
-                btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
-                btnmeasure.setBackgroundResource(R.drawable.backgroundgraywhite);
-                btntrend.setBackgroundResource(R.drawable.rowbackground);
-                btnmeasure.setTextColor(getResources().getColor(R.color.grey));
-                btnsetting.setTextColor(getResources().getColor(R.color.grey));
-                btntrend.setTextColor(getResources().getColor(R.color.white));
-
-
-            }
-        });
-
-        fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-            @Override
-            public void onBackStackChanged() {
-                //  FragmentDesignDetails
-                Fragment fragment = fragmentManager.findFragmentById(R.id.fragment);
-
-                if ((fragment instanceof IncubatorlistFragment)) {
-
-                    //btnmeasure.setVisibility(View.VISIBLE);
-                    //btntrend.setVisibility(View.GONE);
-                   // btnsetting.setVisibility(View.VISIBLE);
-
-
-                }
-                if ((fragment instanceof Reding_fragment)) {
-
-                   // btnmeasure.setVisibility(View.VISIBLE);
-                   // btntrend.setVisibility(View.VISIBLE);
-                  //  btnsetting.setVisibility(View.GONE);
-                    btnsetting.setBackgroundResource(R.drawable.backgroundgraywhite);
-                    btnmeasure.setBackgroundResource(R.drawable.rowbackground);
-                    btntrend.setBackgroundResource(R.drawable.backgroundgraywhite);
-                    btnmeasure.setTextColor(getResources().getColor(R.color.white));
-                    btnsetting.setTextColor(getResources().getColor(R.color.grey));
-                    btntrend.setTextColor(getResources().getColor(R.color.grey));
-
-                }
-                if ((fragment instanceof TrendFragment)) {
-
-                //    btnmeasure.setVisibility(View.VISIBLE);
-                 //   btntrend.setVisibility(View.VISIBLE);
-                //    btnsetting.setVisibility(View.GONE);
-
-
-                }
-                if ((fragment instanceof SettingFragment)) {
-                   // btnmeasure.setVisibility(View.VISIBLE);
-                    //btntrend.setVisibility(View.GONE);
-                    //btnsetting.setVisibility(View.VISIBLE);
-
-                }
-            }
-
         });
 
 

@@ -31,11 +31,6 @@ import landepatil.vishal.sqlitebuilder.Query;
 public class IncubatorlistFragment extends Fragment {
 
     ListView listincubators;
-    String[] maintitle ={
-            "Incubator 1","Incubator 2",
-            "Incubator 3","Incubator 4",
-            "Incubator 5",
-    };
 
     public IncubatorlistFragment() {
         // Required empty public constructor
@@ -55,8 +50,9 @@ public class IncubatorlistFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_incubatorlist, container, false);
         final ArrayList<Incubatore> list= (ArrayList) Query.createQuery(new DBHelper(getContext())).load(Incubatore.class);
-        AdapterIncubatorList adapter = new AdapterIncubatorList(this.getActivity(), list);
+        AdapterIncubatorList adapter = new AdapterIncubatorList(this.getActivity(), list,0);
 
+        ((MainActivity)getActivity()).toolbartitle.setText("Select Incubator");
 
         ListView listincubators = rootview.findViewById(R.id.listincubators);
         listincubators.setAdapter(adapter);

@@ -40,54 +40,13 @@
     </android.support.v7.widget.Toolbar>
 
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:id="@+id/buttons"
-        android:layout_below="@id/my_toolbar"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnmeasure"
-            android:layout_weight="1"
-            android:text="Measure"
-            android:layout_width="0dp"
-            android:background="@drawable/rowbackground"
-            android:layout_margin="5dp"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            style="?android:attr/borderlessButtonStyle"/>
-        <Button
-            android:id="@+id/btntrend"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:text="Trend"
-            android:visibility="visible"
-            android:textColor="@color/grey"
-            android:background="@drawable/backgroundgraywhite"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="?android:attr/borderlessButtonStyle"/>
-        <Button
-            android:id="@+id/btnsetting"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:text="Setting"
-            android:textColor="@color/grey"
-            android:background="@drawable/backgroundgraywhite"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="?android:attr/borderlessButtonStyle"/>
-    </LinearLayout>
 
 
 
 
 <FrameLayout
-android:layout_below="@+id/buttons"
+    android:layout_below="@+id/my_toolbar"
     android:id="@+id/fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">

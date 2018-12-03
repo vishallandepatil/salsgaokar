@@ -107,7 +107,7 @@
             style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/incubatore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -154,6 +154,14 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_marginBottom="16dp"/>
     </LinearLayout>
+
+        <ListView
+            android:id="@+id/listincubators"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/white"
+            android:dividerHeight="0dp"/>
+
     </LinearLayout>
 
 </ScrollView>

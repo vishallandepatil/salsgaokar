@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".trend.TrendFragment"
     android:orientation="vertical"
     android:background="@color/white">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -58,10 +60,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+
         android:visibility="visible">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
             android:orientation="horizontal"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -75,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:background="@drawable/backgroundgraywhite"
-                    android:entries="@array/year"></Spinner>
+                    ></Spinner>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:background="@drawable/backgroundgraywhite"
-                    android:entries="@array/year"></Spinner>
+                   ></Spinner>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,7 +112,15 @@
 
 
         <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart"
+            android:id="@+id/chartco2"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:paddingTop="5dp"/>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/charto2"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="16dp"
@@ -121,6 +133,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="16dp"
+
         android:visibility="gone">
 
         <RelativeLayout
@@ -131,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@drawable/backgroundgraywhite"
-                android:entries="@array/year"></Spinner>
+                ></Spinner>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -151,7 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@drawable/backgroundgraywhite"
-                android:entries="@array/month"></Spinner>
+                ></Spinner>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -160,30 +173,41 @@
                 android:layout_marginRight="5dp"
                 android:layout_centerVertical="true" />
         </RelativeLayout>
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:gravity="center"
+           android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/readinglist"
+            android:layout_marginBottom="50dp"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
         <Button
+            android:layout_alignParentBottom="true"
             android:visibility="visible"
             android:layout_width="150dp"
             android:layout_height="30dp"
             android:layout_gravity="right"
             android:id="@+id/exporttoexcel"
+            android:gravity="center"
             android:background="@drawable/rowbackground"
             android:layout_marginRight="16dp"
             android:text="Save to SD Card"
 
             android:textColor="@color/white"
             android:drawableLeft="@drawable/ic_save_black_24dp"
-
+android:layout_centerHorizontal="true"
             android:drawablePadding="8dp"
             android:textSize="12dp"
             android:paddingLeft="10dp"
             android:layout_marginBottom="10dp"
             style="?android:attr/borderlessButtonStyle"/>
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:id="@+id/readinglist"
-            android:layout_height="wrap_content">
+       </RelativeLayout>
 
-        </android.support.v7.widget.RecyclerView>
+
     </LinearLayout>
+
 
 </LinearLayout>
