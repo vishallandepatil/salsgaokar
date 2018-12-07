@@ -1,6 +1,11 @@
 package com.example.vishallandepatil.incubatore.setting;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +18,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vishallandepatil.incubatore.home.adpators.AdapterIncubatorList;
-import com.example.vishallandepatil.incubatore.login.DBHelper;
+import com.example.vishallandepatil.incubatore.login.AppDatabase;
+
 import com.example.vishallandepatil.incubatore.login.PrefManager;
 import com.example.vishallandepatil.incubatore.R;
 import com.example.vishallandepatil.incubatore.setting.database.Incubatore;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.List;
 
-import landepatil.vishal.sqlitebuilder.Query;
 
 public class SettingFragment extends Fragment {
     LinearLayout clinicinfo,addclicnicview,incubatore;
@@ -93,15 +100,11 @@ public class SettingFragment extends Fragment {
 
                                                    if(validIncubatore( incubatorename.getText().toString()))
                                                    {
+
                                                        Incubatore incubator=new Incubatore();
                                                        incubator.setName(incubatorename.getText().toString());
-                                                       ArrayList<Incubatore> list= (ArrayList) Query.createQuery(new DBHelper(getContext())).load(Incubatore.class);
-                                                       incubator.setId(list.size()+1);
-                                                       Query.createQuery(new DBHelper(getContext())).insert(incubator);
-                                                       incubatorename.setText("");
-                                                       Toast.makeText(getContext(),"Incubatore Added Sucessfully...",Toast.LENGTH_LONG).show();
-                                                       loadlist();
-                                                       getActivity().onBackPressed();
+                                                       new InsertIncubatore(incubatorename,incubator,getContext()).execute();
+
 
                                                    }
 
@@ -115,16 +118,83 @@ public class SettingFragment extends Fragment {
     }
 
     private void loadlist() {
-        final ArrayList<Incubatore> list= (ArrayList) Query.createQuery(new DBHelper(getContext())).load(Incubatore.class);
-        if(list!=null&&list.size()>0) {
-            AdapterIncubatorList adapter = new AdapterIncubatorList(this.getActivity(), list,1);
-            listincubators.setAdapter(adapter);
-            listincubators.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            listincubators.setVisibility(View.GONE);
 
+
+
+        final LiveData<List<Incubatore>> list1=  AppDatabase.getDatabase(getActivity()).uncubatorsDao().fetchAllIncubators();
+
+
+        list1.observeForever(new Observer<List<Incubatore>>() {
+            @Override
+            public void onChanged(@Nullable List<Incubatore> incubatores) {
+                if(incubatores!=null&&incubatores.size()>0) {
+                    AdapterIncubatorList adapter = new AdapterIncubatorList(getActivity(), (ArrayList<Incubatore>) incubatores,SettingFragment.this);
+                    listincubators.setAdapter(adapter);
+                    listincubators.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    listincubators.setVisibility(View.GONE);
+
+                }
+            }
+        });
+
+
+
+    }
+
+    public   void updateIncubators(Incubatore incubatore)
+    {
+      //  long i=AppDatabase.getDatabase(getActivity()).uncubatorsDao().updateIncubatorNameByid(incubatore.getId(),incubatore.getName());
+       // long i=AppDatabase.getDatabase(getActivity()).uncubatorsDao().updateIncubator(incubatore);
+        new updateIncubatorsTask(getActivity(),incubatore).execute();
+      /*  if(i>0)
+      {
+          Toast.makeText(getContext(),"Incubators Update Successfully",Toast.LENGTH_SHORT).show();
+          loadlist();
+      }
+      else
+      {
+          Toast.makeText(getContext(),"Incubators Update Failed",Toast.LENGTH_SHORT).show();
+      }*/
+
+
+    }
+
+
+    private class updateIncubatorsTask extends AsyncTask<Void, Void, Integer> {
+        private Context context;
+        Incubatore incubatore;
+
+        public updateIncubatorsTask(Context context,Incubatore incubatore) {
+            this.context=context;
+            this.incubatore=incubatore;
+        }
+
+
+        @Override
+        protected Integer doInBackground(Void... voids) {
+
+            int a= AppDatabase.getDatabase(context).uncubatorsDao().updateIncubator(incubatore);
+
+            return a;
+        }
+
+        @Override
+        protected void onPostExecute(Integer integer) {
+
+            super.onPostExecute(integer);
+
+            if(integer>0)
+            {
+                Toast.makeText(getContext(),"Incubators Update Successfully",Toast.LENGTH_SHORT).show();
+                loadlist();
+            }
+            else
+            {
+                Toast.makeText(getContext(),"Incubators Update Failed",Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -196,5 +266,57 @@ public class SettingFragment extends Fragment {
         return result;
 
     }
+
+ /*   Incubatore incubator=new Incubatore();
+            incubator.setName(incubatorename.getText().toString());
+
+
+    List<Incubatore>  list=new ArrayList<>();
+            list.add(incubator);
+            AppDatabase.getDatabase(getContext()).uncubatorsDao().insertAll(list);
+
+            incubatorename.setText("");
+            Toast.makeText(getContext(),"Incubatore Added Sucessfully...",Toast.LENGTH_LONG).show();
+    loadlist();
+    //getActivity().onBackPressed();
+            return null;*/
+
+    private    class InsertIncubatore extends AsyncTask<Void, Void, Long> {
+        Incubatore incubator;
+        Context context;
+        EditText incubatorename;
+        public InsertIncubatore(EditText incubatorename,Incubatore incubator,Context context) {
+            this.incubator=incubator;
+            this.context=context;
+            this.incubatorename=incubatorename;
+
+        }
+
+        @Override
+        protected Long doInBackground(Void... voids) {
+
+
+            Long a= AppDatabase.getDatabase(context).uncubatorsDao().insertAll(incubator);
+            return a;
+        }
+        @Override
+        protected void onPostExecute(Long agentsCount) {
+
+
+            if (agentsCount > 0) {
+                //2: If it already exists then prompt user
+                incubatorename.setText("");
+                Toast.makeText(context, "Incubatore Added Sucessfully...", Toast.LENGTH_LONG).show();
+                loadlist();
+
+            } else {
+                Toast.makeText(context, "Incubatore does not Added", Toast.LENGTH_LONG).show();
+
+            }
+        }
+
+    }
+
+
 
 }

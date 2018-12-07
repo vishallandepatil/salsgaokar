@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.vishallandepatil.incubatore.R;
+import com.example.vishallandepatil.incubatore.reading.Reding_fragment;
 import com.example.vishallandepatil.incubatore.setting.SettingFragment;
 
 
@@ -78,8 +79,8 @@ public class MenuFragment extends Fragment {
                 MainActivity.button=1;
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 /*Reding_fragment fragment = new Reding_fragment();*/
-                IncubatorlistFragment incubatorlistFragment = new IncubatorlistFragment();
-                fragmentTransaction.replace(R.id.fragment, incubatorlistFragment).addToBackStack(null);;
+                Reding_fragment fragment =  Reding_fragment.newInstance( /*list.get(position)*/);
+                fragmentTransaction.replace(R.id.fragment, fragment).addToBackStack(null);;
                 fragmentTransaction.commit();
 
 

@@ -1,13 +1,17 @@
 package com.example.vishallandepatil.incubatore.setting.database;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import landepatil.vishal.sqlitebuilder.annotations.PrimaryKey;
-
+@Entity(indices = {@Index("id")})
 public class Incubatore implements Parcelable{
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     int id;
 
     public Incubatore()
@@ -57,6 +61,6 @@ public class Incubatore implements Parcelable{
     public void setName(String name) {
         this.name = name;
     }
-
+    @ColumnInfo(name = "name")
     String name;
 }
