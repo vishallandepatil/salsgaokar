@@ -18,6 +18,7 @@
         />
 
     <LinearLayout
+        android:id="@+id/reading"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -183,5 +184,13 @@
             android:text="LED OFF" />
 
     </LinearLayout>
+    <ListView
+        android:id="@+id/listincubators"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/white"
+        android:layout_below="@+id/status"
+        android:visibility="visible"
+        android:dividerHeight="0dp" />
 
 </RelativeLayout>

@@ -3,15 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.IncubatorlistFragment"
+     tools:context=".home.IncubatorlistFragment"
     android:orientation="vertical"
     android:background="@color/white">
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/error"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="No Incubator added  "
+        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        />
 
     <ListView
         android:id="@+id/listincubators"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:divider="@color/white"
-        android:dividerHeight="0dp"/>
+        android:visibility="visible"
+        android:dividerHeight="0dp" />
 
 </LinearLayout>

@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.example.vishallandepatil.incubatore.R;
 import com.example.vishallandepatil.incubatore.home.MainActivity;
+import com.example.vishallandepatil.incubatore.reading.database.ReadingTable;
+
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
         loginScreen=(LinearLayout) findViewById(R.id.loginscreen);
         splashSceen.setVisibility(View.VISIBLE);
         loginScreen.setVisibility(View.GONE);
-
         new Handler().postDelayed(new Runnable() {
 
             /*

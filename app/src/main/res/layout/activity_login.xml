@@ -108,12 +108,15 @@
     <LinearLayout
         android:orientation="vertical"
         android:id="@+id/slashscreen"
-        android:background="@color/colorPrimary"
+        android:background="@color/splashBg"
         android:layout_width="match_parent"
         android:visibility="visible"
         android:layout_height="match_parent">
 
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/splashscreen"/>
     </LinearLayout>
 
 </RelativeLayout>

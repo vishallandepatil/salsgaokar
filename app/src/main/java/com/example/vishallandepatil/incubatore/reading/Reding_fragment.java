@@ -1,7 +1,9 @@
 package com.example.vishallandepatil.incubatore.reading;
 
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.arch.lifecycle.Observer;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -13,7 +15,10 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,17 +26,27 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.example.vishallandepatil.incubatore.home.IncubatorlistFragment;
 import com.example.vishallandepatil.incubatore.home.MainActivity;
-import com.example.vishallandepatil.incubatore.login.DBHelper;
+import com.example.vishallandepatil.incubatore.home.adpators.AdapterIncubatorList;
+import com.example.vishallandepatil.incubatore.login.AppDatabase;
+
 import com.example.vishallandepatil.incubatore.R;
 import com.example.vishallandepatil.incubatore.reading.database.ReadingTable;
+import com.example.vishallandepatil.incubatore.reading.database.ReadingTableDao;
+import com.example.vishallandepatil.incubatore.setting.NameEditDilog;
+import com.example.vishallandepatil.incubatore.setting.SettingFragment;
 import com.example.vishallandepatil.incubatore.setting.database.Incubatore;
+import com.example.vishallandepatil.incubatore.setting.database.IncubatorsDao;
+import com.example.vishallandepatil.incubatore.trend.TrendFragment;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -44,7 +59,7 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
-import landepatil.vishal.sqlitebuilder.Query;
+
 
 import static android.content.ContentValues.TAG;
 
@@ -69,13 +84,16 @@ public class Reding_fragment extends Fragment {
     int  readBufferPosition = 0;
     byte[]  readBuffer = new byte[1024];
     private Incubatore incubatore;
+    ListView listincubators;
+    View reading;
+
     // Make an int
 
 
-    public static Reding_fragment newInstance(Incubatore incubatore) {
+    public static Reding_fragment newInstance() {
         Reding_fragment fragment = new Reding_fragment();
         Bundle bundle= new Bundle();
-        bundle.putParcelable("Incubatore",incubatore);
+     //   bundle.putParcelable("Incubatore",incubatore);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -83,7 +101,8 @@ public class Reding_fragment extends Fragment {
 
     }
     TextView status;
-    private final BroadcastReceiver bStateReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver bStateReceiver = new BroadcastReceiver()
+    {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
@@ -110,18 +129,16 @@ public class Reding_fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            incubatore= getArguments().getParcelable("Incubatore");
+          ///  incubatore= getArguments().getParcelable("Incubatore");
 
         }
         IntentFilter filter1 = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
         getActivity().registerReceiver(bStateReceiver, filter1);
     }
-    private String getDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-//                2014-10-07 02:34:56
-                "yyyy-dd-MM HH:mm:ss", Locale.getDefault());
+    private Date getDateTime() {
+
         Date date = new Date();
-        return dateFormat.format(date);
+        return date;
     }
     private String getYear() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
@@ -147,6 +164,7 @@ public class Reding_fragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Disconnect();
         getActivity().unregisterReceiver(bStateReceiver);
     }
 
@@ -155,6 +173,8 @@ public class Reding_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reding_fragment, container, false);
+        listincubators= view.findViewById(R.id.listincubators);
+        reading= view.findViewById(R.id.reading);
         bluetothenable = view.findViewById(R.id.bluetothenable);
         status = (TextView) view.findViewById(R.id.status);
         btn = view.findViewById(R.id.btn);
@@ -165,8 +185,9 @@ public class Reding_fragment extends Fragment {
         lableco2 = view.findViewById(R.id.lableco2);
         readingLayout = view.findViewById(R.id.readingLayout);
         name = view.findViewById(R.id.name);
-        name.setText(incubatore.getName());
-        Disconnect();
+        name.setText("");
+
+
 
 
         devicelist = (ListView) view.findViewById(R.id.listView);
@@ -183,17 +204,15 @@ public class Reding_fragment extends Fragment {
                     reading.setMonth(getMonth());
                     reading.setYear(getYear());
                     reading.setDay(getDay());
-                    reading.setIncubatoreId(incubatore.getId()+"");
-                 List a= Query.createQuery(new DBHelper(getContext())).load(ReadingTable.class);
+                    reading.setIncubatoreId(incubatore.getId());
+                    ;
 
-                    reading.setId((a.size()+1)+"");
-                    if(Query.createQuery(new DBHelper(getContext())).insert(reading))
-                    {
-                        lable.setText("Reading Store Sucessfully...");
-                        btn.setText("");
-                        Toast.makeText(getContext(),"Reading Store Sucessfully...",Toast.LENGTH_LONG).show();
-                        getActivity().onBackPressed();
-                    }
+                    new InsertReading(reading,getActivity(),btn,lable).execute();
+
+
+
+
+
 
 
                 }
@@ -275,20 +294,76 @@ public class Reding_fragment extends Fragment {
            // Make an intent to start next activity.
             new ConnectBT().execute();*/
 
-
-            devicelist.setVisibility(View.GONE);
-            lable.setText("Reading Completed");
-            btn.setText(getResources().getString(R.string.storereading));
-            readingLayout.setVisibility(View.VISIBLE);
-            btn.setVisibility(View.VISIBLE);
-            lableco2.setText("25 %");
-            lableco.setText("35 %");
-
+            showIncubators();
 
 
 
         }
     };
+
+    private   class InsertReading extends AsyncTask<Void, Void, Long> {
+        ReadingTable readingTable;
+        Activity context;
+        Button btn;
+        TextView label;
+
+        public InsertReading(ReadingTable readingTable,Activity context,Button btn,TextView label) {
+            this.readingTable=readingTable;
+            this.context=context;
+            this.btn=btn;
+            this.label=label;
+
+
+        }
+
+        @Override
+        protected Long doInBackground(Void... voids) {
+
+
+            Long a= AppDatabase.getDatabase(context).readingTableDao().insertReading(readingTable);
+            return a;
+        }
+        @Override
+        protected void onPostExecute(Long agentsCount) {
+
+
+            if (agentsCount > 0) {
+                label.setText("Reading Store Sucessfully...");
+                btn.setText("");
+                Toast.makeText(context,"Reading Store Successfully...",Toast.LENGTH_LONG).show();
+
+
+                final UserActionDilog cdd =new UserActionDilog(context);
+                cdd.show();
+                View.OnClickListener onClickListener=new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        switch (v.getId()) {
+                            case R.id.btn_yes:
+                                cdd.dismiss();
+                                showIncubators();
+                                break;
+                            case R.id.btn_no:
+                                cdd.dismiss();
+                                context.onBackPressed();
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                };
+                cdd.setOnClickListener( onClickListener);
+
+            } else {
+                Toast.makeText(context, "Reading not Store Properly...", Toast.LENGTH_LONG).show();
+
+            }
+        }
+
+    }
+
 
     private void Disconnect() {
         if (btSocket != null) //If the btSocket is busy
@@ -371,7 +446,7 @@ public class Reding_fragment extends Fragment {
                                                 btn.setVisibility(View.VISIBLE);
                                                 lableco2.setText(data.split(",")[0]);
                                                 lableco.setText(data.split(",")[1]);
-                                                Disconnect();
+
                                             }
                                             catch (Exception e)
                                             {
@@ -468,6 +543,10 @@ public class Reding_fragment extends Fragment {
 
                 // finish();
             } else {
+
+              //fdgdf
+
+
                 msg("Bluetooth is Connected. Please Wait for Collecting Data");
 
                 status.setText("Connected");
@@ -476,12 +555,21 @@ public class Reding_fragment extends Fragment {
                 isBtConnected = true;
                 devicelist.setVisibility(View.GONE);
                 btn.setVisibility(View.GONE);
-                beginListenForData();
-                try {
-                    OutputStream tmpOut = btSocket.getOutputStream();
-                } catch (IOException e) {
-                    Log.e(TAG, "Error occurred when creating output stream", e);
-                }
+
+
+
+
+
+                showIncubators();
+
+
+
+
+
+
+
+
+
             }
             progress.dismiss();
         }
@@ -494,6 +582,49 @@ public class Reding_fragment extends Fragment {
         }
 
 
+
+    }
+
+    void showIncubators()
+    {
+
+        IncubatorsDao a=  AppDatabase.getDatabase(getContext()).uncubatorsDao();
+        reading.setVisibility(View.GONE);
+        a.fetchAllIncubators().observeForever(new Observer<List<Incubatore>>() {
+            @Override
+            public void onChanged(@Nullable final List<Incubatore> list) {
+
+                final AdapterIncubatorList adapter = new AdapterIncubatorList(getActivity(), (ArrayList<Incubatore>) list,Reding_fragment.this);
+                if(list.size()>0)
+                {
+                    listincubators.setVisibility(View.VISIBLE);
+                }
+
+                listincubators.setAdapter(adapter);
+
+                listincubators.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                        listincubators.setVisibility(View.GONE);
+                        reading.setVisibility(View.VISIBLE);
+                        incubatore=adapter.getItem(position);
+                        name.setText(incubatore.getName());
+                      //  beginListenForData();
+
+                        devicelist.setVisibility(View.GONE);
+                        lable.setText("Reading Completed");
+                        btn.setText(getResources().getString(R.string.storereading));
+                        readingLayout.setVisibility(View.VISIBLE);
+                        btn.setVisibility(View.VISIBLE);
+                        lableco2.setText("25 %");
+                        lableco.setText("35 %");
+                    }
+                });
+
+            }
+        });
 
     }
     private void msg(String s) {

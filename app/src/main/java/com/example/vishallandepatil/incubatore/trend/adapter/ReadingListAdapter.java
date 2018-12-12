@@ -59,7 +59,7 @@ public class ReadingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         {
             RowViewHolder holder1= (RowViewHolder) holder;
             ReadingTable readingTable=moviesList.get(position-1);
-            holder1.date.setText(readingTable.getDateTime());
+            holder1.date.setText(readingTable.getDateTime().toString());
             holder1.co2.setText(readingTable.getCoreading());
             holder1.o2.setText(readingTable.getO2reaading());
         }

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1023474167032",
+    "firebase_url": "https://incumonitor.firebaseio.com",
+    "project_id": "incumonitor",
+    "storage_bucket": "incumonitor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023474167032:android:ece3b90ddffae606",
+        "android_client_info": {
+          "package_name": "com.example.vishallandepatil.incubatore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023474167032-hi92jmc4s1gj53ba2pjq96hh4fqhsl7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vishallandepatil.incubatore",
+            "certificate_hash": "347165ab8c9a3a845baf24f3331889d983eec7e0"
+          }
+        },
+        {
+          "client_id": "1023474167032-2v3mrlak4ril6sabjtfha5sufmnc7h71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZUd4H7k2l2T6X4376rosh8ZluWuleVxs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023474167032-2v3mrlak4ril6sabjtfha5sufmnc7h71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,4 +9,6 @@
     <color name="red">#f50505</color>
     <color name="grey">#bcbcbc</color>
     <color name="darkgrey">#999999</color>
+    <color name="trasperunt">#12fffefe</color>
+    <color name="splashBg">#d9edf1</color>
 </resources>

@@ -1,20 +1,39 @@
 package com.example.vishallandepatil.incubatore.reading.database;
 
-import landepatil.vishal.sqlitebuilder.annotations.PrimaryKey;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
+import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
 
+import com.example.vishallandepatil.incubatore.setting.database.Incubatore;
+
+import java.util.Date;
+
+import static android.arch.persistence.room.ForeignKey.CASCADE;
+
+@Entity(indices = {@Index("id")})
 public class ReadingTable
 {
 
-    @PrimaryKey
-    String id;
-
-    String DateTime;
-    String IncubatoreId;
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    int id;
+    @ColumnInfo(name = "DateTime")
+    @TypeConverters({TimestampConverter.class})
+    Date DateTime;
+    @ColumnInfo(name = "IncubatoreId")
+    int IncubatoreId;
+    @ColumnInfo(name = "year")
     String year;
+    @ColumnInfo(name = "month")
     String month;
+    @ColumnInfo(name = "day")
     String day;
-
+    @ColumnInfo(name = "coreading")
     String coreading;
+    @ColumnInfo(name = "o2reaading")
     String o2reaading;
 
     public String getDay() {
@@ -41,27 +60,27 @@ public class ReadingTable
         this.month = month;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getDateTime() {
+    public Date getDateTime() {
         return DateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(Date dateTime) {
         DateTime = dateTime;
     }
 
-    public String getIncubatoreId() {
+    public int getIncubatoreId() {
         return IncubatoreId;
     }
 
-    public void setIncubatoreId(String incubatoreId) {
+    public void setIncubatoreId(int incubatoreId) {
         IncubatoreId = incubatoreId;
     }
 
