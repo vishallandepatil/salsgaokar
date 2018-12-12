@@ -205,15 +205,7 @@ public class Reding_fragment extends Fragment {
                     reading.setYear(getYear());
                     reading.setDay(getDay());
                     reading.setIncubatoreId(incubatore.getId());
-                    ;
-
                     new InsertReading(reading,getActivity(),btn,lable).execute();
-
-
-
-
-
-
 
                 }
                 else
@@ -289,12 +281,11 @@ public class Reding_fragment extends Fragment {
     private AdapterView.OnItemClickListener myListClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView av, View v, int arg2, long arg3) {
             // Get the device MAC address, the last 17 chars in the View
-           /* info = ((TextView) v).getText().toString();
+           info = ((TextView) v).getText().toString();
             address = info.substring(info.length() - 17);
            // Make an intent to start next activity.
-            new ConnectBT().execute();*/
+            new ConnectBT().execute();
 
-            showIncubators();
 
 
 
@@ -447,6 +438,7 @@ public class Reding_fragment extends Fragment {
                                                 lableco2.setText(data.split(",")[0]);
                                                 lableco.setText(data.split(",")[1]);
 
+
                                             }
                                             catch (Exception e)
                                             {
@@ -557,12 +549,7 @@ public class Reding_fragment extends Fragment {
                 btn.setVisibility(View.GONE);
 
 
-
-
-
                 showIncubators();
-
-
 
 
 
@@ -611,15 +598,15 @@ public class Reding_fragment extends Fragment {
                         reading.setVisibility(View.VISIBLE);
                         incubatore=adapter.getItem(position);
                         name.setText(incubatore.getName());
-                      //  beginListenForData();
+                        beginListenForData();
 
-                        devicelist.setVisibility(View.GONE);
+                       /* devicelist.setVisibility(View.GONE);
                         lable.setText("Reading Completed");
                         btn.setText(getResources().getString(R.string.storereading));
                         readingLayout.setVisibility(View.VISIBLE);
                         btn.setVisibility(View.VISIBLE);
                         lableco2.setText("25 %");
-                        lableco.setText("35 %");
+                        lableco.setText("35 %");*/
                     }
                 });
 

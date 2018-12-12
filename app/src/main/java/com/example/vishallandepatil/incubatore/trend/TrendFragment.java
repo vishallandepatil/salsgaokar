@@ -2,7 +2,7 @@ package com.example.vishallandepatil.incubatore.trend;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
-import android.app.DownloadManager;
+
 import android.app.ProgressDialog;
 import android.arch.lifecycle.Observer;
 import android.content.pm.PackageManager;
@@ -21,7 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -102,25 +102,38 @@ public class TrendFragment extends Fragment {
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
             if (datetype == 1) {
-                fromdate.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-                fromdatetable.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+
                 try {
                     startdate = (Date) new SimpleDateFormat("yyyy-mm-DD").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                     startdate.setMonth(monthOfYear);
+                    fromdate.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
+                    fromdatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
+                    startdate.setDate(startdate.getDate()-1);
+
                     loadGraf();
                     loadTable();
+
+
+                   // fromdatetable.setText(startdate.getYear() + "-" + (startdate.getMonth() + 1) + "-" + startdate.getDay());
 
                 } catch (Exception e) {
 
                 }
             } else if (datetype == 2) {
-                todate.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-                todatetable.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+
                 try {
                     endate = (Date) new SimpleDateFormat("yyyy-mm-DD").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                     endate.setMonth(monthOfYear);
+                    todate.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
+                    todatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
+                    endate.setDate(endate.getDate()+1);
                     loadGraf();
                     loadTable();
+                  /*  todate.setText(endate.getYear() + "-" + (endate.getMonth() + 1) + "-" + endate.getDay());
+                    todatetable.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                   */
+
+
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -514,7 +527,7 @@ public class TrendFragment extends Fragment {
 
                         try {
                             Date date = data.get(i).getDateTime();
-                            if (date.after(startdate) && date.before(endate)) {
+                            if ((date.after(startdate) ||date.equals(startdate)) && (date.equals(startdate))||date.before(endate)) {
 
 
                                 Float O2 = Float.valueOf(data.get(i).getO2reaading().replace("%", "").trim());
@@ -594,7 +607,7 @@ public class TrendFragment extends Fragment {
 
                         try {
                             Date date = data.get(i).getDateTime();
-                            if (date.after(startdate) && date.before(endate)) {
+                            if ((date.after(startdate) ||date.equals(startdate)) && (date.equals(startdate))||date.before(endate)) {
                                 cursor.add(data.get(i));
                             }
                         } catch (Exception e) {
@@ -652,7 +665,7 @@ public class TrendFragment extends Fragment {
                         myOutWriter.append("\n");
                         for (ReadingTable entry : data) {
 
-                            if (entry.getDateTime().before(endate) && entry.getDateTime().after(startdate)) {
+                            if ((entry.getDateTime().before(endate)||entry.getDateTime().equals(endate)) && (entry.getDateTime().after(startdate)||entry.getDateTime().equals(startdate))) {
 
                                 myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
                                 myOutWriter.append("\n");

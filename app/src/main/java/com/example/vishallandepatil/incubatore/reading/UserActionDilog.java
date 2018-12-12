@@ -18,7 +18,7 @@ public class UserActionDilog extends Dialog {
 
     public Button yes, no;
 
-    View.OnClickListener onClickListener;
+    //View.OnClickListener onClickListener;
 
     public UserActionDilog(Activity a ) {
         super(a);
@@ -28,7 +28,7 @@ public class UserActionDilog extends Dialog {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.onClickListener = onClickListener;
+    //    this.onClickListener = onClickListener;
         yes.setOnClickListener(onClickListener);
         no.setOnClickListener(onClickListener);
     }
