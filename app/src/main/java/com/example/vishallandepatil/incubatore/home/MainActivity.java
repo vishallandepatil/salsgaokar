@@ -46,12 +46,6 @@ public static     int button=1;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        /*Reding_fragment fragment = new Reding_fragment();*/
-        MenuFragment incubatorlistFragment = new MenuFragment();
-        fragmentTransaction.add(R.id.fragment, incubatorlistFragment);
-        fragmentTransaction.commit();
         btnsetting = (Button) findViewById(R.id.btnsetting);
         btnmeasure = (Button) findViewById(R.id.btnmeasure);
         btntrend = (Button) findViewById(R.id.btntrend);
@@ -59,13 +53,39 @@ public static     int button=1;
 
 
         backpress = (ImageView) findViewById(R.id.backpress);
+
+
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+        backpress.setVisibility(View.GONE);
+        fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                //  FragmentDesignDetails
+                Fragment fragment = fragmentManager.findFragmentById(R.id.fragment);
+
+                if ((fragment instanceof MenuFragment)) {
+
+                    backpress.setVisibility(View.GONE);
+                }
+                else
+                {
+                    backpress.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        /*Reding_fragment fragment = new Reding_fragment();*/
+        MenuFragment incubatorlistFragment = new MenuFragment();
+        fragmentTransaction.replace(R.id.fragment, incubatorlistFragment);
+        fragmentTransaction.commit();
+
         backpress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-
 
     }
 

@@ -113,6 +113,7 @@
                 android:id="@+id/fromdate"
                 android:clickable="true"
                 android:layout_weight="1"
+                android:focusable="false"
                 android:editable="false"
                 android:hint="From Date"
                 android:layout_height="wrap_content"
@@ -123,6 +124,8 @@
                 android:layout_weight="1"
                 android:editable="false"
                 android:hint="To Date"
+
+                android:focusable="false"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp" />
 
@@ -207,6 +210,8 @@
                 android:layout_weight="1"
                 android:editable="false"
                 android:hint="From Date"
+
+                android:focusable="false"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp" />
             <EditText
@@ -215,6 +220,8 @@
                 android:layout_weight="1"
                 android:editable="false"
                 android:hint="To Date"
+
+                android:focusable="false"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp" />
 
@@ -231,26 +238,54 @@
             android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>
-        <Button
-            android:layout_alignParentBottom="true"
-            android:visibility="visible"
-            android:layout_width="150dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right"
-            android:id="@+id/exporttoexcel"
-            android:gravity="center"
-            android:background="@drawable/rowbackground"
-            android:layout_marginRight="16dp"
-            android:text="Save to SD Card"
+           <LinearLayout
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_alignParentBottom="true"
+               android:gravity="center"
+               android:layout_marginBottom="10dp"
+               android:layout_height="wrap_content">
+               <Button
 
-            android:textColor="@color/white"
-            android:drawableLeft="@drawable/ic_save_black_24dp"
-android:layout_centerHorizontal="true"
-            android:drawablePadding="8dp"
-            android:textSize="12dp"
-            android:paddingLeft="10dp"
-            android:layout_marginBottom="10dp"
-            style="?android:attr/borderlessButtonStyle"/>
+                   android:visibility="visible"
+                   android:layout_width="150dp"
+                   android:layout_height="30dp"
+                   android:layout_gravity="right"
+                   android:id="@+id/exporttoexcel"
+                   android:gravity="center"
+                   android:background="@drawable/rowbackground"
+                   android:layout_marginRight="16dp"
+                   android:text="Save to SD Card"
+
+                   android:textColor="@color/white"
+                   android:drawableLeft="@drawable/ic_save_black_24dp"
+                   android:layout_centerHorizontal="true"
+                   android:drawablePadding="8dp"
+                   android:textSize="12dp"
+                   android:paddingLeft="10dp"
+                   style="?android:attr/borderlessButtonStyle"/>
+               <Button
+                   android:layout_alignParentBottom="true"
+                   android:visibility="visible"
+                   android:layout_width="150dp"
+                   android:layout_height="30dp"
+                   android:layout_gravity="right"
+                   android:id="@+id/exportmail"
+                   android:gravity="center"
+                   android:background="@drawable/rowbackground"
+                   android:layout_marginRight="16dp"
+                   android:text="Export to Mail"
+
+                   android:textColor="@color/white"
+                   android:drawableLeft="@drawable/ic_share_black_24dp"
+                   android:layout_centerHorizontal="true"
+                   android:drawablePadding="8dp"
+                   android:textSize="12dp"
+                   android:paddingLeft="10dp"
+                   style="?android:attr/borderlessButtonStyle"/>
+
+           </LinearLayout>
+
        </RelativeLayout>
 
 

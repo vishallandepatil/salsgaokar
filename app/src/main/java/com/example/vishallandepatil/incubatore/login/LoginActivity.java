@@ -47,13 +47,13 @@ public class LoginActivity extends AppCompatActivity {
 
                 splashSceen.setVisibility(View.GONE);
 
-                if(new PrefManager(LoginActivity.this).ISLOGing())
+                //if(new PrefManager(LoginActivity.this).ISLOGing())
                 {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
-                loginScreen.setVisibility(View.VISIBLE);
+                //loginScreen.setVisibility(View.VISIBLE);
                 btnlogin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

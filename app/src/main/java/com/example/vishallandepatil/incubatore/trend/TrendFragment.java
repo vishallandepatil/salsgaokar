@@ -5,14 +5,18 @@ import android.app.DatePickerDialog;
 
 import android.app.ProgressDialog;
 import android.arch.lifecycle.Observer;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,7 +34,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
+import com.example.vishallandepatil.incubatore.BuildConfig;
 import com.example.vishallandepatil.incubatore.R;
+import com.example.vishallandepatil.incubatore.file.FileFormats;
 import com.example.vishallandepatil.incubatore.file.FileHelper;
 import com.example.vishallandepatil.incubatore.file.SingleMediaScanner;
 import com.example.vishallandepatil.incubatore.home.MainActivity;
@@ -50,6 +56,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -73,7 +80,7 @@ public class TrendFragment extends Fragment {
     Spinner yearlist, monthlist, yearlistgraf, monthlistgraf;
     int yearselected = 0;
     int monthselected = 0;
-    Button exporttoexcel;
+    Button exporttoexcel,exportmail;
     EditText fromdate, todate, todatetable, fromdatetable;
 
     public TrendFragment() {
@@ -104,12 +111,12 @@ public class TrendFragment extends Fragment {
             if (datetype == 1) {
 
                 try {
-                    startdate = (Date) new SimpleDateFormat("yyyy-mm-DD").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-                    startdate.setMonth(monthOfYear);
+                    startdate = (Date) new SimpleDateFormat("yyyy-mm-dd").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                   // startdate.setMonth(monthOfYear);
                     fromdate.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
                     fromdatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
-                    startdate.setDate(startdate.getDate()-1);
-
+                   // startdate.setDate(startdate.getDate()-1);
+                    fromdatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
                     loadGraf();
                     loadTable();
 
@@ -122,8 +129,8 @@ public class TrendFragment extends Fragment {
             } else if (datetype == 2) {
 
                 try {
-                    endate = (Date) new SimpleDateFormat("yyyy-mm-DD").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-                    endate.setMonth(monthOfYear);
+                    endate = (Date) new SimpleDateFormat("yyyy-mm-dd").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                    //endate.setMonth(monthOfYear);
                     todate.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
                     todatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
                     endate.setDate(endate.getDate()+1);
@@ -154,6 +161,7 @@ public class TrendFragment extends Fragment {
         View rootview = inflater.inflate(R.layout.fragment_trend, container, false);
         btngraph = (Button) rootview.findViewById(R.id.btngraph);
         exporttoexcel = (Button) rootview.findViewById(R.id.exporttoexcel);
+        exportmail = (Button) rootview.findViewById(R.id.exportmail);
         btncalendar = (Button) rootview.findViewById(R.id.btncalendar);
         graphview = (LinearLayout) rootview.findViewById(R.id.graphview);
         calendarview = (LinearLayout) rootview.findViewById(R.id.calendarview);
@@ -175,6 +183,7 @@ public class TrendFragment extends Fragment {
         btngraph.setTextColor(getResources().getColor(R.color.colorPrimary));
         chartco2 = (LineChart) rootview.findViewById(R.id.chartco2);
         charto2 = (LineChart) rootview.findViewById(R.id.charto2);
+
 
         btngraph.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -468,6 +477,7 @@ public class TrendFragment extends Fragment {
             }
         });
         exporttoexcel.setVisibility(View.GONE);
+        exportmail.setVisibility(View.GONE);
         exporttoexcel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -497,14 +507,88 @@ public class TrendFragment extends Fragment {
                 } else {
                     // Permission has already been granted
                     exportTheDB();
+
+                }
+
+
+            }
+        });
+        exportmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Here, thisActivity is the current activity
+                if (ContextCompat.checkSelfPermission(getContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    // Permission is not granted
+                    // Should we show an explanation?
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                        // Show an explanation to the user *asynchronously* -- don't block
+                        // this thread waiting for the user's response! After the user
+                        // sees the explanation, try again to request the permission.
+                    } else {
+                        // No explanation needed; request the permission
+                        ActivityCompat.requestPermissions(getActivity(),
+                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                1);
+
+                        // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                        // app-defined int constant. The callback method gets the
+                        // result of the request.
+                    }
+                } else {
+                    // Permission has already been granted
+                    exportMail();
+
                 }
 
 
             }
         });
 
+        Calendar cal = Calendar.getInstance();
+        endate=cal.getTime();
+
+        cal.add(Calendar.DATE, -7);
+        startdate=cal.getTime();
+        loadGraf();
+        loadTable();
+        fromdate.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
+        fromdatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
+
+        todate.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
+        todatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
+
+
+
 
         return rootview;
+    }
+
+
+    private void share(File file)
+    {
+        try {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("*/*");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Back Up");
+            if (file != null && file.exists()) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    Uri uri2 = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".provider",file);
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, uri2);
+
+                    shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                } else {
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                }
+            startActivity(shareIntent);
+            }
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "Unable to share the file", Toast.LENGTH_SHORT).show();
+        }
     }
     private void loadGraf() {
 
@@ -521,28 +605,56 @@ public class TrendFragment extends Fragment {
 
                     ArrayList<Entry> entriesco2 = new ArrayList<>();
                     ArrayList<Entry> entrieso2 = new ArrayList<>();
-                    String[] xAxis = new String[data.size()];
+                    ArrayList<String> xlist=new ArrayList<>();
+                    if(data!=null) {
 
-                    for (int i = 0; data.size() > i; i++) {
+                        for (int i = 0; data.size() > i; i++) {
 
-                        try {
-                            Date date = data.get(i).getDateTime();
-                            if ((date.after(startdate) ||date.equals(startdate)) && (date.equals(startdate))||date.before(endate)) {
+                            try {
 
 
-                                Float O2 = Float.valueOf(data.get(i).getO2reaading().replace("%", "").trim());
-                                Float cO2 = Float.valueOf(data.get(i).getCoreading().replace("%", "").trim());
 
-                                entrieso2.add(new Entry(O2, i));
-                                entriesco2.add(new Entry(cO2, i));
-                                xAxis[i] = data.get(i).getDateTime().toString();
+                                Date date = data.get(i).getDateTime();
+                                if (date.after(startdate) && date.before(endate))
+                                {
+                                    if (data.get(i) != null) {
+                                        Float O2 = Float.valueOf(data.get(i).getO2reaading().replace("%", "").trim());
+                                        Float cO2 = Float.valueOf(data.get(i).getCoreading().replace("%", "").trim());
+                                        entrieso2.add(new Entry(O2, i));
+                                        entriesco2.add(new Entry(cO2, i));
+                                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS a");
+                                        xlist.add(df.format(data.get(i).getDateTime()));
+                                    }
+
+                                }
+                                else if(date.equals(startdate) || date.equals(endate)) {
+                                    if (data.get(i) != null) {
+
+                                        Float O2 = Float.valueOf(data.get(i).getO2reaading().replace("%", "").trim());
+                                        Float cO2 = Float.valueOf(data.get(i).getCoreading().replace("%", "").trim());
+                                        entrieso2.add(new Entry(O2, i));
+                                        entriesco2.add(new Entry(cO2, i));
+                                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS a");
+                                        xlist.add(df.format(data.get(i).getDateTime()));
+                                    }
+                                }
+                                DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS a");
+
+
+
+                            } catch (Exception e) {
+e.printStackTrace();
                             }
-                        } catch (Exception e) {
-
                         }
                     }
-
                     try {
+                        String[] xAxis = new String[xlist.size()];
+                        int i=0;
+                        for(String x:xlist)
+                        {
+                            xAxis[i]=x;
+                            i++;
+                        }
 
                         ArrayList<LineDataSet> lines = new ArrayList<LineDataSet>();
                         LineDataSet lDataSet1 = new LineDataSet(entrieso2, "O2");
@@ -566,6 +678,7 @@ public class TrendFragment extends Fragment {
                         chartco2.invalidate();
                         chartco2.setDragEnabled(true);
                     } catch (Exception e) {
+                        e.printStackTrace();
 
                     }
                 }
@@ -601,17 +714,24 @@ public class TrendFragment extends Fragment {
             ReadingTableDao a = AppDatabase.getDatabase(getContext()).readingTableDao();
             a.fetchReading(incubatore.getId()).observeForever(new Observer<List<ReadingTable>>() {
                 @Override
-                public void onChanged(@Nullable List<ReadingTable> data) {
+                public void onChanged(@Nullable List<ReadingTable> data1) {
                     ArrayList<ReadingTable> cursor = new ArrayList<>();
-                    for (int i = 0; data.size() > i; i++) {
+                    for (int i = 0; data1.size() >= i; i++)
+                    {
 
-                        try {
-                            Date date = data.get(i).getDateTime();
-                            if ((date.after(startdate) ||date.equals(startdate)) && (date.equals(startdate))||date.before(endate)) {
-                                cursor.add(data.get(i));
+                        try
+                        {
+                            Date date = data1.get(i).getDateTime();
+                            if (date.after(startdate) && date.before(endate))
+                            {
+                                cursor.add(data1.get(i));
+                            }
+                            else if(date.equals(startdate) || date.equals(endate))
+                            {
+                                cursor.add(data1.get(i));
                             }
                         } catch (Exception e) {
-
+                            e.printStackTrace();
                         }
                     }
 
@@ -623,14 +743,17 @@ public class TrendFragment extends Fragment {
                         recyclerView.setAdapter(mAdapter);
                         if(cursor.size()>0) {
                             exporttoexcel.setVisibility(View.VISIBLE);
+                            exportmail.setVisibility(View.VISIBLE);
                         }
                         else
                         {
                             exporttoexcel.setVisibility(View.GONE);
+                            exportmail.setVisibility(View.GONE);
                         }
 
                     } catch (Exception e) {
                         exporttoexcel.setVisibility(View.GONE);
+                        exportmail.setVisibility(View.GONE);
                     }
                 }
             });
@@ -638,6 +761,7 @@ public class TrendFragment extends Fragment {
 
         } else {
             exporttoexcel.setVisibility(View.GONE);
+            exportmail.setVisibility(View.GONE);
         }
     }
     private void exportTheDB() {
@@ -665,8 +789,76 @@ public class TrendFragment extends Fragment {
                         myOutWriter.append("\n");
                         for (ReadingTable entry : data) {
 
-                            if ((entry.getDateTime().before(endate)||entry.getDateTime().equals(endate)) && (entry.getDateTime().after(startdate)||entry.getDateTime().equals(startdate))) {
+                            Date date =entry.getDateTime();
+                            if (date.after(startdate) && date.before(endate))
+                            {
+                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + ";" + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
+                                myOutWriter.append("\n");
+                            }
+                            else if(date.equals(startdate) || date.equals(endate))
+                            {
+                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + ";" + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
+                                myOutWriter.append("\n");
+                            }
 
+                       }
+                        myOutWriter.close();
+                        fOut.close();
+                        Toast.makeText(getContext(), "Exported Successfully", Toast.LENGTH_SHORT).show();
+                        new SingleMediaScanner(getActivity(), myFile);
+                        try {
+                           // share(myFile);
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
+                    } catch (IOException e) {
+                        Log.e(getClass().getSimpleName(), "Could not create or Open the database");
+
+                        Toast.makeText(getContext(), "Error While Export", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                dialog.dismiss();
+
+            }
+        });
+
+    }
+    private void exportMail() {
+        final ProgressDialog dialog = new ProgressDialog(getActivity());
+        dialog.setMessage("Exporting database...");
+        dialog.show();
+        ReadingTableDao a = AppDatabase.getDatabase(getContext()).readingTableDao();
+        // a.fetchReadingBetweenDate(String from, String to);
+
+        a.fetchReading(incubatore.getId()).observeForever(new Observer<List<ReadingTable>>() {
+            @Override
+            public void onChanged(@Nullable List<ReadingTable> data) {
+                if (data != null) {
+                    try {
+                        File myFile;
+                        Calendar cal = Calendar.getInstance();
+                        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+                        String TimeStampDB = sdf.format(cal.getTime());
+                        //  myFile = new File(extStorageDirectory+"/Export_"+TimeStampDB+".csv");
+                        myFile = FileHelper.creatfile("Backup", "Export_" + TimeStampDB, ".csv");
+                        final FileOutputStream fOut = new FileOutputStream(myFile);
+                        final OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
+                        myOutWriter.append("ID;TimeStamp;year;O2;CO2;IncubatorID;MONTH");
+
+                        myOutWriter.append("\n");
+                        for (ReadingTable entry : data) {
+
+                            Date date =entry.getDateTime();
+                            if (date.after(startdate) && date.before(endate))
+                            {
+                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
+                                myOutWriter.append("\n");
+                            }
+                            else if(date.equals(startdate) || date.equals(endate))
+                            {
                                 myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
                                 myOutWriter.append("\n");
                             }
@@ -676,6 +868,13 @@ public class TrendFragment extends Fragment {
                         fOut.close();
 
                         new SingleMediaScanner(getActivity(), myFile);
+                        try {
+                            share(myFile);
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
                     } catch (IOException e) {
                         Log.e(getClass().getSimpleName(), "Could not create or Open the database");
 
@@ -697,6 +896,21 @@ public class TrendFragment extends Fragment {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     exportTheDB();
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(getContext(), "Permission Denied by you!", Toast.LENGTH_SHORT).show();
+
+                }
+                return;
+            }
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    exportMail();
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
                 } else {

@@ -53,6 +53,7 @@ import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -74,22 +75,16 @@ public class Reding_fragment extends Fragment {
     TextView lable,lableco,lableco2,name;
     String address;
     LinearLayout readingLayout;
-
     private ProgressDialog progress;
     BluetoothSocket btSocket = null;
     private boolean isBtConnected = false;
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-
     boolean stopWorker = false;
     int  readBufferPosition = 0;
     byte[]  readBuffer = new byte[1024];
     private Incubatore incubatore;
     ListView listincubators;
     View reading;
-
-    // Make an int
-
-
     public static Reding_fragment newInstance() {
         Reding_fragment fragment = new Reding_fragment();
         Bundle bundle= new Bundle();
@@ -109,13 +104,28 @@ public class Reding_fragment extends Fragment {
                 if (intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1) == BluetoothAdapter.STATE_OFF) {
                     // Bluetooth is disconnected, do handling here
                     status.setText("Off");
+                    getActivity().onBackPressed();
+//                    Toast.makeText(getContext(),"hhd",Toast.LENGTH_SHORT).show();
                 }
                 if (intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1) == BluetoothAdapter.STATE_ON) {
                     // Bluetooth is disconnected, do handling here
+                 //   getActivity().onBackPressed();
                     status.setText("ON");
-                }
+                    //  Toast.makeText(getContext(),"hhggd",Toast.LENGTH_SHORT).show();
 
+                }
             }
+          if ("android.bluetooth.device.action.ACL_DISCONNECTED".equals(action)) {
+                    // Bluetooth is disconnected, do handling here
+  //                  status.setText("DISCONNECTED");
+                  //  getActivity().onBackPressed();
+//                    Toast.makeText(getContext(),"hhd",Toast.LENGTH_SHORT).show();
+              }
+
+
+            //BluetoothAdapter.STATE_DISCONNECTED
+
+
         }
 
     };
@@ -133,6 +143,12 @@ public class Reding_fragment extends Fragment {
 
         }
         IntentFilter filter1 = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+
+        filter1.addAction(BluetoothDevice.ACTION_FOUND);
+        filter1.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
+        filter1.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+
+
         getActivity().registerReceiver(bStateReceiver, filter1);
     }
     private Date getDateTime() {
@@ -186,11 +202,30 @@ public class Reding_fragment extends Fragment {
         readingLayout = view.findViewById(R.id.readingLayout);
         name = view.findViewById(R.id.name);
         name.setText("");
-
-
-
-
         devicelist = (ListView) view.findViewById(R.id.listView);
+
+
+//        Date date=getDateTime();
+//        for(int i=1;i<=30;i++)
+//        {
+//            Calendar calendar = Calendar.getInstance();
+//            calendar.setTime(date);
+//            calendar.add(Calendar.DATE, -i);
+//            Date yesterday = calendar.getTime();
+//            ReadingTable reading =   new ReadingTable();
+//            reading.setCoreading("2%");
+//            reading.setO2reaading("5%");
+//            reading.setDateTime(yesterday);
+//            reading.setMonth(getMonth());
+//            reading.setYear(getYear());
+//            reading.setDay(getDay());
+//            reading.setIncubatoreId(1);
+//            new InsertReading(reading,getActivity(),btn,lable).execute();
+//        }
+
+
+
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -320,7 +355,7 @@ public class Reding_fragment extends Fragment {
 
             if (agentsCount > 0) {
                 label.setText("Reading Store Sucessfully...");
-                btn.setText("");
+              //  btn.setText("");
                 Toast.makeText(context,"Reading Store Successfully...",Toast.LENGTH_LONG).show();
 
 
@@ -333,6 +368,10 @@ public class Reding_fragment extends Fragment {
                         switch (v.getId()) {
                             case R.id.btn_yes:
                                 cdd.dismiss();
+                                lableco2.setText("");
+                                lableco.setText("");
+                                msg("Bluetooth is Connected. Please Wait for Collecting Data");
+
                                 showIncubators();
                                 break;
                             case R.id.btn_no:
@@ -410,6 +449,10 @@ public class Reding_fragment extends Fragment {
                 {
                     try
                     {
+//                        if()
+//                        {
+//                            getActivity().onBackPressed();
+//                        }
                         int bytesAvailable = btSocket.getInputStream().available();
 
                         if(bytesAvailable > 0)
@@ -448,9 +491,15 @@ public class Reding_fragment extends Fragment {
                                     });
                                 }
                                 else
-                                {
+                                {try{
                                     readBuffer[readBufferPosition++] = b;
                                 }
+                                catch (Exception e)
+                                {
+
+                                }
+                                }
+
                             }
                         }
                     }
@@ -487,7 +536,6 @@ public class Reding_fragment extends Fragment {
                     BluetoothDevice dispositivo = myBluetooth.getRemoteDevice(address);//connects to the device's address and checks if it's available
 //                    btSocket = dispositivo.createInsecureRfcommSocketToServiceRecord(myUUID);
                     btSocket = createBluetoothSocket(dispositivo);
-
 
                     //create a RFCOMM (SPP) connection
                     BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
@@ -574,7 +622,13 @@ public class Reding_fragment extends Fragment {
 
     void showIncubators()
     {
-
+        try {
+           // btSocket.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        devicelist.setVisibility(View.GONE);
+        btn.setVisibility(View.GONE);
         IncubatorsDao a=  AppDatabase.getDatabase(getContext()).uncubatorsDao();
         reading.setVisibility(View.GONE);
         a.fetchAllIncubators().observeForever(new Observer<List<Incubatore>>() {
@@ -598,6 +652,8 @@ public class Reding_fragment extends Fragment {
                         reading.setVisibility(View.VISIBLE);
                         incubatore=adapter.getItem(position);
                         name.setText(incubatore.getName());
+                        readingLayout.setVisibility(View.GONE);
+
                         beginListenForData();
 
                        /* devicelist.setVisibility(View.GONE);
@@ -607,6 +663,7 @@ public class Reding_fragment extends Fragment {
                         btn.setVisibility(View.VISIBLE);
                         lableco2.setText("25 %");
                         lableco.setText("35 %");*/
+
                     }
                 });
 

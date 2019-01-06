@@ -20,6 +20,15 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:visibility="visible">
+            <ImageView
+                android:id="@+id/editicon"
+                android:layout_width="wrap_content"
+                android:layout_gravity="right"
+                android:padding="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mode_edit_black_24dp"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,17 +103,38 @@
             android:layout_marginRight="16dp"
             android:textSize="14dp"
             android:lines="4"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:gravity="right"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/rowbackground"
+        android:text="Cancel"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        style="?android:attr/borderlessButtonStyle"/>
 
-        <Button
-            android:id="@+id/btnaddclinic"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rowbackground"
-            android:text="Add"
-            android:textColor="@color/white"
-            style="?android:attr/borderlessButtonStyle"/>
+    <Button
+        android:id="@+id/btnaddclinic"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/rowbackground"
+        android:text="Save"
+        android:textColor="@color/white"
+        style="?android:attr/borderlessButtonStyle"/>
+
+</LinearLayout>
+
     </LinearLayout>
 
         <LinearLayout

@@ -26,6 +26,7 @@
         android:layout_below="@+id/status"
         android:layout_height="match_parent"
         android:gravity="center"
+
         android:orientation="vertical">
 
 
@@ -190,7 +191,7 @@
         android:layout_height="wrap_content"
         android:divider="@color/white"
         android:layout_below="@+id/status"
-        android:visibility="visible"
+        android:visibility="gone"
         android:dividerHeight="0dp" />
 
 </RelativeLayout>

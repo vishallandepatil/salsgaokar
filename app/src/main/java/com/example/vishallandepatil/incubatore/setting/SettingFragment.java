@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,7 +34,8 @@ public class SettingFragment extends Fragment {
     LinearLayout clinicinfo,addclicnicview,incubatore;
     EditText nameclinic,clinicadress,incubatorename;
     TextView lablename,lableAdress;
-    Button btnaddclinic,incubatoraddbtn;
+    Button btnaddclinic,incubatoraddbtn,cancel;
+    ImageView editicon;
     ListView listincubators;
     public SettingFragment() {
         // Required empty public constructor
@@ -61,7 +63,10 @@ public class SettingFragment extends Fragment {
         incubatorename=view.findViewById(R.id.incubatorename);
         incubatoraddbtn=view.findViewById(R.id.incubatoraddbtn);
         btnaddclinic=view.findViewById(R.id.btnaddclinic);
+        cancel=view.findViewById(R.id.cancel);
         addclicnicview=view.findViewById(R.id.addclicnicview);
+        editicon=view.findViewById(R.id.editicon);
+
         incubatore=view.findViewById(R.id.incubatore);
         lablename=view.findViewById(R.id.lablename);
         lableAdress=view.findViewById(R.id.lableAdress);
@@ -70,6 +75,12 @@ public class SettingFragment extends Fragment {
         loadlist();
         final PrefManager prefManager=new PrefManager(getContext());
         settingLayout(prefManager);
+        editicon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editLayout(prefManager);
+            }
+        });
 
 
         btnaddclinic.setOnClickListener(new View.OnClickListener() {
@@ -222,6 +233,25 @@ public class SettingFragment extends Fragment {
 
         }
     }
+ private void editLayout(final PrefManager prefManager) {
+
+     clinicinfo.setVisibility(View.GONE);
+     addclicnicview.setVisibility(View.VISIBLE);
+     incubatore.setVisibility(View.GONE);
+     cancel.setVisibility(View.VISIBLE);
+     nameclinic.setText(prefManager.getName());
+     clinicadress.setText(prefManager.getAdress());
+     cancel.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             settingLayout(prefManager);
+         }
+     });
+
+
+ }
+
+
 
     boolean validClinic(String name,String adress)
    {

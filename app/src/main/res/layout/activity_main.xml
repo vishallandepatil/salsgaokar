@@ -16,7 +16,7 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -24,6 +24,7 @@
                 android:id="@+id/backpress"
                 android:src="@drawable/ic_arrow_back_black_24dp"
                 android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"/>
             <TextView
@@ -31,19 +32,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Incumonitor"
+              android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
                 style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="16dp"
+
                 android:textColor="@color/white"/>
-        </LinearLayout>
+        </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
-
-
-
-
-
-
 
 <FrameLayout
     android:layout_below="@+id/my_toolbar"

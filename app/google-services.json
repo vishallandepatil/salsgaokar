@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "1023474167032-ltj9d8tt1ilg1c983ujhi2orocq5aj25.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vishallandepatil.incubatore",
+            "certificate_hash": "63aa3c75a929fe9845377da41b6df28714c2445d"
+          }
+        },
+        {
           "client_id": "1023474167032-2v3mrlak4ril6sabjtfha5sufmnc7h71.apps.googleusercontent.com",
           "client_type": 3
         }
