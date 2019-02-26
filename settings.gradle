@@ -1,1 +1,1 @@
-include ':app', ':opencsv-4.3.2'
+include ':app'

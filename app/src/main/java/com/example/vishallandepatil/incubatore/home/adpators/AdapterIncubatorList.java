@@ -22,6 +22,7 @@ public class AdapterIncubatorList extends ArrayAdapter<Incubatore> {
     private  ArrayList<Incubatore> maintitle;
     private Fragment fragmenttype;
 
+
     public AdapterIncubatorList(Activity context, ArrayList<Incubatore> maintitle,Fragment fragmenttype) {
         super(context, R.layout.row_incubator_list, maintitle);
         this.context=context;

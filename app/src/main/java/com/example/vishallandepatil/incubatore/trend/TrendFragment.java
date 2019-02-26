@@ -51,6 +51,7 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.google.firebase.crash.FirebaseCrash;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -106,17 +107,18 @@ public class TrendFragment extends Fragment {
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
         @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear,
-                              int dayOfMonth) {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             if (datetype == 1) {
 
                 try {
-                    startdate = (Date) new SimpleDateFormat("yyyy-mm-dd").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                    startdate = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                    // startdate.setMonth(monthOfYear);
-                    fromdate.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
-                    fromdatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
+                    fromdate.setText(new SimpleDateFormat("yyyy-MM-dd").format(startdate));
+                    fromdatetable.setText(new SimpleDateFormat("yyyy-MM-dd").format(startdate));
                    // startdate.setDate(startdate.getDate()-1);
-                    fromdatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
+                    fromdatetable.setText(new SimpleDateFormat("yyyy-MM-dd").format(startdate));
+                    startdate.setDate(startdate.getDate()-1);
+
                     loadGraf();
                     loadTable();
 
@@ -129,10 +131,10 @@ public class TrendFragment extends Fragment {
             } else if (datetype == 2) {
 
                 try {
-                    endate = (Date) new SimpleDateFormat("yyyy-mm-dd").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                    endate = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                     //endate.setMonth(monthOfYear);
-                    todate.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
-                    todatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
+                    todate.setText(new SimpleDateFormat("yyyy-MM-dd").format(endate));
+                    todatetable.setText(new SimpleDateFormat("yyyy-MM-dd").format(endate));
                     endate.setDate(endate.getDate()+1);
                     loadGraf();
                     loadTable();
@@ -556,12 +558,14 @@ public class TrendFragment extends Fragment {
         startdate=cal.getTime();
         loadGraf();
         loadTable();
-        fromdate.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
-        fromdatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(startdate));
+        fromdate.setText(new SimpleDateFormat("yyyy-MM-dd").format(startdate));
+        fromdatetable.setText(new SimpleDateFormat("yyyy-MM-dd").format(startdate));
 
-        todate.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
-        todatetable.setText(new SimpleDateFormat("yyyy-mm-dd").format(endate));
+        todate.setText(new SimpleDateFormat("yyyy-MM-dd").format(endate));
+        todatetable.setText(new SimpleDateFormat("yyyy-MM-dd").format(endate));
 
+        endate.setDate(endate.getDate()+1);
+        startdate.setDate(startdate.getDate()-1);
 
 
 
@@ -572,6 +576,7 @@ public class TrendFragment extends Fragment {
     private void share(File file)
     {
         try {
+           // FirebaseCrash.log("Activity created");
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("*/*");
             shareIntent.putExtra(Intent.EXTRA_TEXT, "Back Up");
@@ -588,6 +593,7 @@ public class TrendFragment extends Fragment {
             }
         } catch (Exception e) {
             Toast.makeText(getContext(), "Unable to share the file", Toast.LENGTH_SHORT).show();
+            FirebaseCrash.log("Activity created"+e.toString());
         }
     }
     private void loadGraf() {
@@ -606,9 +612,13 @@ public class TrendFragment extends Fragment {
                     ArrayList<Entry> entriesco2 = new ArrayList<>();
                     ArrayList<Entry> entrieso2 = new ArrayList<>();
                     ArrayList<String> xlist=new ArrayList<>();
+                    entrieso2.add(new Entry(0, 0));
+                    entriesco2.add(new Entry(0, 0));
+                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
+                    xlist.add("");
                     if(data!=null) {
 
-                        for (int i = 0; data.size() > i; i++) {
+                        for (int i = 0; data.size() >= i; i++) {
 
                             try {
 
@@ -620,9 +630,9 @@ public class TrendFragment extends Fragment {
                                     if (data.get(i) != null) {
                                         Float O2 = Float.valueOf(data.get(i).getO2reaading().replace("%", "").trim());
                                         Float cO2 = Float.valueOf(data.get(i).getCoreading().replace("%", "").trim());
-                                        entrieso2.add(new Entry(O2, i));
-                                        entriesco2.add(new Entry(cO2, i));
-                                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS a");
+                                        entrieso2.add(new Entry(O2, i+1));
+                                        entriesco2.add(new Entry(cO2, i+1));
+                                        df = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
                                         xlist.add(df.format(data.get(i).getDateTime()));
                                     }
 
@@ -632,18 +642,18 @@ public class TrendFragment extends Fragment {
 
                                         Float O2 = Float.valueOf(data.get(i).getO2reaading().replace("%", "").trim());
                                         Float cO2 = Float.valueOf(data.get(i).getCoreading().replace("%", "").trim());
-                                        entrieso2.add(new Entry(O2, i));
-                                        entriesco2.add(new Entry(cO2, i));
-                                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS a");
+                                        entrieso2.add(new Entry(O2, i+1));
+                                        entriesco2.add(new Entry(cO2, i+1));
+                                        df = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
                                         xlist.add(df.format(data.get(i).getDateTime()));
                                     }
                                 }
-                                DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS a");
+                                 df = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
 
 
 
                             } catch (Exception e) {
-e.printStackTrace();
+                                e.printStackTrace();
                             }
                         }
                     }
@@ -657,26 +667,25 @@ e.printStackTrace();
                         }
 
                         ArrayList<LineDataSet> lines = new ArrayList<LineDataSet>();
-                        LineDataSet lDataSet1 = new LineDataSet(entrieso2, "O2");
+                        LineDataSet lDataSet1 = new LineDataSet(entrieso2, "CO2");
                         lDataSet1.setColor(Color.BLUE);
                         lDataSet1.setCircleColor(Color.BLUE);
                         lines.add(lDataSet1);
 
                         ArrayList<LineDataSet> linesCo2 = new ArrayList<LineDataSet>();
-                        LineDataSet lDataSet2 = new LineDataSet(entriesco2, "Co2");
+                        LineDataSet lDataSet2 = new LineDataSet(entriesco2, "o2");
                         lDataSet2.setColor(Color.RED);
                         lDataSet2.setCircleColor(Color.RED);
                         linesCo2.add(lDataSet2);
-
                         charto2.setData(new LineData(xAxis, lines));
                         charto2.setTouchEnabled(true);
                         charto2.invalidate();
                         charto2.setDragEnabled(true);
-
                         chartco2.setData(new LineData(xAxis, linesCo2));
                         chartco2.setTouchEnabled(true);
                         chartco2.invalidate();
                         chartco2.setDragEnabled(true);
+
                     } catch (Exception e) {
                         e.printStackTrace();
 
@@ -696,7 +705,7 @@ e.printStackTrace();
             lines.add(lDataSet1);
 
             ArrayList<LineDataSet> linesco2 = new ArrayList<LineDataSet>();
-            LineDataSet lDataSet2 = new LineDataSet(entriesco2, "Co2");
+            LineDataSet lDataSet2 = new LineDataSet(entriesco2, "CO2");
             lDataSet2.setColor(Color.RED);
             lDataSet2.setCircleColor(Color.RED);
             lines.add(lDataSet2);
@@ -792,12 +801,12 @@ e.printStackTrace();
                             Date date =entry.getDateTime();
                             if (date.after(startdate) && date.before(endate))
                             {
-                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + ";" + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
+                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + ";" + entry.getYear() + ";" + entry.getO2reaading() + ";" + entry.getCoreading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
                                 myOutWriter.append("\n");
                             }
                             else if(date.equals(startdate) || date.equals(endate))
                             {
-                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + ";" + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
+                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + ";" + entry.getYear() + ";" + entry.getO2reaading() + ";" + entry.getCoreading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
                                 myOutWriter.append("\n");
                             }
 
@@ -807,7 +816,7 @@ e.printStackTrace();
                         Toast.makeText(getContext(), "Exported Successfully", Toast.LENGTH_SHORT).show();
                         new SingleMediaScanner(getActivity(), myFile);
                         try {
-                           // share(myFile);
+                            share(myFile);
                         }
                         catch (Exception e)
                         {
@@ -854,12 +863,12 @@ e.printStackTrace();
                             Date date =entry.getDateTime();
                             if (date.after(startdate) && date.before(endate))
                             {
-                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
+                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime()+ ";"  + entry.getYear() + ";" + entry.getO2reaading() + ";" + entry.getCoreading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
                                 myOutWriter.append("\n");
                             }
                             else if(date.equals(startdate) || date.equals(endate))
                             {
-                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + entry.getYear() + ";" + ";" + entry.getCoreading() + ";" + entry.getO2reaading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
+                                myOutWriter.append(entry.getId() + ";" + entry.getDateTime() + ";" + entry.getYear()  + ";" + entry.getO2reaading() + ";" + entry.getCoreading() + ";" + entry.getIncubatoreId() + ";" + entry.getMonth());
                                 myOutWriter.append("\n");
                             }
                             Toast.makeText(getContext(), "Exported Successfully", Toast.LENGTH_SHORT).show();
@@ -878,7 +887,7 @@ e.printStackTrace();
                     } catch (IOException e) {
                         Log.e(getClass().getSimpleName(), "Could not create or Open the database");
 
-                        Toast.makeText(getContext(), "Error While Export", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Error While Sharing file", Toast.LENGTH_SHORT).show();
                     }
 
                 }

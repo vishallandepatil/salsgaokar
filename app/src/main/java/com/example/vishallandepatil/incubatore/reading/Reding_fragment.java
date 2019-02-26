@@ -204,25 +204,25 @@ public class Reding_fragment extends Fragment {
         name.setText("");
         devicelist = (ListView) view.findViewById(R.id.listView);
 
+//
+       /* Date date=getDateTime();
+        for(int i=1;i<=1;i++)
+        {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
 
-//        Date date=getDateTime();
-//        for(int i=1;i<=30;i++)
-//        {
-//            Calendar calendar = Calendar.getInstance();
-//            calendar.setTime(date);
-//            calendar.add(Calendar.DATE, -i);
-//            Date yesterday = calendar.getTime();
-//            ReadingTable reading =   new ReadingTable();
-//            reading.setCoreading("2%");
-//            reading.setO2reaading("5%");
-//            reading.setDateTime(yesterday);
-//            reading.setMonth(getMonth());
-//            reading.setYear(getYear());
-//            reading.setDay(getDay());
-//            reading.setIncubatoreId(1);
-//            new InsertReading(reading,getActivity(),btn,lable).execute();
-//        }
-
+            Date yesterday = calendar.getTime();
+            ReadingTable reading =   new ReadingTable();
+            reading.setCoreading("2%");
+            reading.setO2reaading("5%");
+            reading.setDateTime(yesterday);
+            reading.setMonth(getMonth());
+            reading.setYear(getYear());
+            reading.setDay(getDay());
+            reading.setIncubatoreId(1);
+            new InsertReading(reading,getActivity(),btn,lable).execute();
+        }
+*/
 
 
 
@@ -233,8 +233,8 @@ public class Reding_fragment extends Fragment {
                 if(btn.getText().toString().equalsIgnoreCase(getResources().getString(R.string.storereading))) {
 
                     ReadingTable reading =   new ReadingTable();
-                    reading.setCoreading(lableco.getText().toString());
-                    reading.setO2reaading(lableco2.getText().toString());
+                    reading.setCoreading(lableco2.getText().toString());
+                    reading.setO2reaading(lableco.getText().toString());
                     reading.setDateTime(getDateTime());
                     reading.setMonth(getMonth());
                     reading.setYear(getYear());
